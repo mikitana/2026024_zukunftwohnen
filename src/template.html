@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="Zukunft Wohnen: Rechtssicherheit statt Versorgungslücke für junge Erwachsene mit schwerster Behinderung.">
+  <link rel="stylesheet" href="src/styles.css">
+  <script src="src/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-link" href="#{{LOGO_TARGET}}" data-logo-link data-target="{{LOGO_TARGET}}" aria-label="Zur ersten Rubrik wechseln">
+        <img src="{{LOGO_PATH}}" alt="Zukunft Wohnen" class="brand-logo" fetchpriority="high">
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav-list">
+        <span class="sr-only">Menü umschalten</span>
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" aria-label="Kapitel-Navigation">
+        <div class="nav-scroll" id="primary-nav-list">
+          {{NAV_ITEMS}}
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="site-main">
+    {{CHAPTERS}}
+  </main>
+
+  <footer class="site-footer" id="kontakt">
+    <div class="footer-inner">
+      {{FOOTER_CONTENT}}
+    </div>
+  </footer>
+</body>
+</html>

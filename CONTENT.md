@@ -1,14 +1,13 @@
+::: navbar
+:::
+
 # Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V.
-<navbar: logo, zukunftwohnen>
+::: navbar: logo, zukunftwohnen
+:::
 
-Wenn junge Menschen mit komplexen Behinderungen erwachsen werden, endet oft jede Perspektive. Sie und ihre Angehörigen stehen allein da – ohne verlässliche Wohnformen, ohne Tagesstruktur, ohne Zukunft.
+Vom Bayerischen Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwerster Behinderung eine Stimme. 
 
-Unser gemeinnütziger Verein setzt sich dafür ein, dass junge schwerstbehinderte Menschen, die zwingend einen Platz in einer Intensivwohnform benötigen, diesen auch erhalten. Wir kämpfen gegen eine unerträgliche Realität: Junge Erwachsene mit schwersten und komplexen Behinderungen werden von bestehenden Einrichtungen abgewiesen. Der Grund: Die Betreuung seie zu aufwendig. Für betroffene Familien bedeutet das Verzweiflung, Isolation, Intensivpflege- und Betreuung, ohne Aussicht auf Entlastung und Teilhabe.
-
-Für junge Erwachsene Menschen mit schwerer geistiger und/oder komplexen Behinderungen ist Wohnen mehr als nur ein Dach über dem Kopf. Es bedeutet ein Leben in Würde, Sicherheit und größtmöglicher Teilhabe. Menschen mit schwersten Behinderungen brauchen Schutzräume, Reizarmut, kleine Gruppen und spezialisierte Fachkräfte. Inklusive WGs kund auch das Zuhause können diesen Bedarf nicht decken.
- 
-Der Rechtsanspruch auf ein selbstbestimmtes Leben in der Gemeinschaft (SGB IX) ist klar – doch die Versorgungslücke wächst. Nur noch wenige, große Träger bieten überhaupt diese lebenswichtige Intensivassistenz - und sind oftmals für die kommenden Jahre belegt. 
-
+Wenn junge Menschen mit komplexen Behinderungen erwachsen werden, endet oft jede Perspektive. Familien stehen allein da – ohne verlässliche Wohnformen, ohne Tagesstruktur, ohne Zukunft.
 
 ## Nach der Schule kommt das Nichts
 
@@ -19,12 +18,14 @@ Der Rechtsanspruch auf ein selbstbestimmtes Leben in der Gemeinschaft (SGB IX) i
 
 Eltern berichten, was fehlende Wohnplätze und Tagesstruktur konkret bedeuten.
 
-**Platzhalter Video 1** | **Platzhalter Video 2** | **Platzhalter Video 3** 
-
+::: video-container
+**[Platzhalter Video 1](https://youtu.be/f5g_yrX6dzo)** | **Platzhalter Video 2** | **Platzhalter Video 3** 
+:::
 
 ## Unsere [Petition](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)
 
-<navbar: Petition unterstützen>
+:::navbar: Petition unterstützen
+:::
 
 Wir fordern:
 - Ausreichendes Angebot für Intensiv-Wohnplätze 
@@ -66,24 +67,28 @@ Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsen
 
 
 ## Werde aktiv: Wir brauchen Deine Hände, nicht nur Deine Unterschrift
-<navbar: Spenden und Helfen>
+:::navbar: Spenden und Helfen
+:::
+
 Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert sich nicht durch Appelle allein, sondern durch Menschen, die anpacken. Werde aktives Mitglied und hilf uns beim Networking, in der Pressearbeit oder beim direkten Kontakt zu Abgeordneten. Mit jede Stunde, die Du gibst, gibst Du schwerstbehinderte Menschen eine Perspektive. 
 
-[**Antrag auf aktive Mitgliedschaft**
+[**Antrag auf aktive Mitgliedschaft (PDF)**
 ](#)
 
 ### Wie Du mitmachen kannst
 #### Spenden
 
-Placeholder wofür brauchen wir Spenden
+Placeholder text wofür brauchen wir Spenden
 
-**[Spenden Option 1](#)** | **[Spenden Option 2](#)** 
+Placeholder Bankkonto
 
 #### Networking
 
 Verbinde Dich mit anderen Eltern, Einrichtungen und Verbänden. Gemeinsam erreichen wir mehr.
 
+::: newsletter
 **[Abonniere unser Newsletter](#)** 
+:::
 
 #### Politische Lobbyarbeit
 
@@ -100,7 +105,8 @@ Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situa
 Werde Follower und nimm an unseren Instagram-Aktionen Teil!
 **[Link auf Instagram](#)**
 
-Placeholder für Instagram-iframes
+::: instagram-posts
+:::
 
 
 #### Pressearbeit
@@ -110,7 +116,8 @@ Hilf uns, Geschichten zu erzählen, die bewegen. Mach die Anliegen schwerstbehin
 
 
 ## Über uns: Eltern, die nicht aufgeben
-<navbar: Über uns>
+:::navbar: Über uns
+:::
 
 Wir, der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V. sind Eltern, die für ihre schwerstbehinderten Kinder kämpfen und dabei ein System verändern wollen. 
 
@@ -139,12 +146,45 @@ Vorstand: Kathrin Higgen, Dr. Ulrich von Zanthier, Uwe Higgen. Gemeinnützig ane
 
 Wir sind kein Beratungsdienst und können keine Rechtsberatung oder Einzelfall-Beratung leisten. Unsere Kraft und unser Fokus liegen auf der systemischen Veränderung – auf Gesetzen, Strukturen und politischen Entscheidungen, die ALLEN helfen. Für individuelle Unterstützung wende Dich bitte an Pflegestützpunkte, Bezirke oder spezialisierte Beratungsstellen.
 
+### Kontakt
+
+::: email
+**[Schreibe uns eine Mail](#)**
+:::
+
+**[Vernetze mit uns auf Instagram](#)**
+
+
+## Glossar: Wissen ist Macht
+:::navbar: Glossar
+:::
+
+Die Welt der Behindertenhilfe ist voll von Fachbegriffen. Hier erklären wir die wichtigsten Konzepte – damit Sie mitreden können und Ihre Rechte kennen.
+
+### Besondere Wohnform
+
+Früher "stationäres Wohnen" genannt. Gemeinschaftliche Wohnform mit 24-Stunden-Betreuung, hoher Fachkraftquote und spezialisierter Pflege für Menschen mit schwersten Behinderungen.
+
+### Intensivbetreuung
+
+Betreuung für Menschen mit sehr hohem Pflege- und Unterstützungsbedarf (oft Pflegegrad IV-V), herausforderndem Verhalten oder medizinischer Komplexität. Erfordert hochqualifiziertes Personal.
+
+### Tagesstruktur & Förderstätte
+
+Therapeutische und pädagogische Angebote außerhalb der Wohnform. Für Menschen, die nicht werkstattfähig sind. Essenziell für Teilhabe und Förderung.
+
+### Inklusive WGs: nicht geeignet 
+
+eine Wohngemeinschaft, in der Menschen mit und ohne Behinderung gemeinsam zusammenleben. 
+
+Menschen mit schwersten Behinderungen brauchen Schutzräume, Reizarmut, kleine Gruppen und spezialisierte Fachkräfte. Inklusive WGs können diesen Bedarf nicht decken.
 
 
 ---
-<footer>
+:::footer
 Bleib informiert über unsere Arbeit. Abonniere unseren Newsletter oder folge uns auf Instagram.
 
 - [Newsletter abonnieren](#)
 - [Instagram folgen](#)
 - [Spenden](#)
+:::

@@ -1,15 +1,19 @@
-# Rechtssicherheit statt Versorgungslücke
+# Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V.
 <navbar: logo, zukunftwohnen>
 
-Vom Bayerischen Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwerster Behinderung eine Stimme. 
+Wenn junge Menschen mit komplexen Behinderungen erwachsen werden, endet oft jede Perspektive. Sie und ihre Angehörigen stehen allein da – ohne verlässliche Wohnformen, ohne Tagesstruktur, ohne Zukunft.
 
-Wenn junge Menschen mit komplexen Behinderungen erwachsen werden, endet oft jede Perspektive. Familien stehen allein da – ohne verlässliche Wohnformen, ohne Tagesstruktur, ohne Zukunft.
+Unser gemeinnütziger Verein setzt sich dafür ein, dass junge schwerstbehinderte Menschen, die zwingend einen Platz in einer Intensivwohnform benötigen, diesen auch erhalten. Wir kämpfen gegen eine unerträgliche Realität: Junge Erwachsene mit schwersten und komplexen Behinderungen werden von bestehenden Einrichtungen abgewiesen. Der Grund: Die Betreuung seie zu aufwendig. Für betroffene Familien bedeutet das Verzweiflung, Isolation, Intensivpflege- und Betreuung, ohne Aussicht auf Entlastung und Teilhabe.
+
+Für junge Erwachsene Menschen mit schwerer geistiger und/oder komplexen Behinderungen ist Wohnen mehr als nur ein Dach über dem Kopf. Es bedeutet ein Leben in Würde, Sicherheit und größtmöglicher Teilhabe. Menschen mit schwersten Behinderungen brauchen Schutzräume, Reizarmut, kleine Gruppen und spezialisierte Fachkräfte. Inklusive WGs kund auch das Zuhause können diesen Bedarf nicht decken.
+ 
+Der Rechtsanspruch auf ein selbstbestimmtes Leben in der Gemeinschaft (SGB IX) ist klar – doch die Versorgungslücke wächst. Nur noch wenige, große Träger bieten überhaupt diese lebenswichtige Intensivassistenz - und sind oftmals für die kommenden Jahre belegt. 
+
 
 ## Nach der Schule kommt das Nichts
 
-18 Jahre lang erhalten Kinder und Jugendliche mit schwersten Behinderungen Förderung, Betreuung und Struktur. Dann endet die Schulpflicht – und damit oft jede Perspektive. Wartelisten für Wohnheimplätze sind geschlossen oder erstrecken sich über Jahre. Werkstätten und Förderstätten haben keine Kapazitäten.
+18 Jahre lang erhalten Kinder und Jugendliche mit schwersten Behinderungen Förderung, Betreuung und Struktur. Dann endet die Schulpflicht – und damit oft jede Perspektive. Werkstätten und Förderstätten haben keine Kapazitäten. Wartelisten für Wohnheimplätze sind geschlossen oder erstrecken sich über Jahre. Der Rechtsanspruch auf ein selbstbestimmtes Leben in der Gemeinschaft (SGB IX) ist klar – doch die Versorgungslücke wächst. Nur noch wenige, große Träger bieten überhaupt diese lebenswichtige Intensivassistenz - und sind oftmals für die kommenden Jahre belegt. 
 
-Junge Erwachsene werden „nach Hause entlassen". Eltern müssen rund um die Uhr pflegen – ohne Aussicht auf Entlastung, ohne Sozialleben, oft ohne Berufstätigkeit. Die schwächsten Mitglieder unserer Gesellschaft fallen durch jedes Netz.
 
 ### Stimmen betroffener Familien
 
@@ -23,8 +27,8 @@ Eltern berichten, was fehlende Wohnplätze und Tagesstruktur konkret bedeuten.
 <navbar: Petition unterstützen>
 
 Wir fordern:
-- Rechtsanspruch auf besondere Wohnformen für Menschen mit schwersten Behinderungen
-- Garantierte Tagesstruktur durch Förderstätten und therapeutische Angebote
+- Ausreichendes Angebot für Intensiv-Wohnplätze 
+- Garantierte Tagesstruktur durch Förderstätten, Werkstätten und therapeutische Angebote
 - Aufbau ausreichender Kapazitäten durch politische Task Force
 - Kündigungsschutz für bestehende Wohnplätze
 
@@ -32,12 +36,14 @@ Wir fordern:
 
 ### Unsere Meilensteine
 
-Unsere Arbeit zeigt Wirkung: Über 16.000 Menschen haben ihre Stimme für Gerechtigkeit erhoben. Das ist erst der Anfang.
+Vom Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwerster Behinderung eine Stimme:
+
+Über 16.000 Menschen unterstützen unsere Forderungn mit ihrer Stimme. Das ist erst der Anfang.
 
 #### Bundestag
 <-Datum->
 
-Petition Pet 3-20-11-2171-029585 offiziell zur Erwägung an die Bundesregierung überwiesen – ein parlamentarischer Meilenstein
+Petition Pet 3-20-11-2171-029585 offiziell zur Erwägung an die Bundesregierung überwiesen – ein parlamentarischer Meilenstein.
 
 **[Petitionstext (PDF)](#)**
 
@@ -59,10 +65,9 @@ Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsen
 **[Petitions-Votum des Bundestages (PDF)](#)**
 
 
-
-## Werde aktiv: Wir brauchen deine Hände, nicht nur deine Unterschrift
+## Werde aktiv: Wir brauchen Deine Hände, nicht nur Deine Unterschrift
 <navbar: Spenden und Helfen>
-Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert sich nicht durch Appelle allein, sondern durch Menschen, die anpacken. Werde aktives Mitglied und hilf uns beim Networking, in der Pressearbeit oder beim direkten Kontakt zu Abgeordneten. Jede Stunde, die du gibst, bringt uns näher an echte Veränderung.
+Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert sich nicht durch Appelle allein, sondern durch Menschen, die anpacken. Werde aktives Mitglied und hilf uns beim Networking, in der Pressearbeit oder beim direkten Kontakt zu Abgeordneten. Mit jede Stunde, die Du gibst, gibst Du schwerstbehinderte Menschen eine Perspektive. 
 
 [**Antrag auf aktive Mitgliedschaft**
 ](#)
@@ -70,29 +75,29 @@ Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert s
 ### Wie Du mitmachen kannst
 #### Spenden
 
-Placeholder wofür brauchen wir spenden
+Placeholder wofür brauchen wir Spenden
 
 **[Spenden Option 1](#)** | **[Spenden Option 2](#)** 
 
-#### Netzwerkarbeit
+#### Networking
 
-Verbinde dich mit anderen Eltern, Einrichtungen und Verbänden. Gemeinsam erreichen wir mehr.
+Verbinde Dich mit anderen Eltern, Einrichtungen und Verbänden. Gemeinsam erreichen wir mehr.
 
 **[Abonniere unser Newsletter](#)** 
 
 #### Politische Lobbyarbeit
 
-Nutze unsere professionelle Vorlage, um deine lokalen Abgeordneten zur Kommunalwahl 2026 zur Verantwortung zu ziehen. Unser Template basiert auf dem offiziellen Bundestags-Beschluss und macht es einfach, konkrete Forderungen zu formulieren. Persönliche Briefe wirken – besonders, wenn viele sie schreiben.
+Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situation schwerstbehinderter Menschen aufmekrsam zu machen. Unser Template basiert auf dem offiziellen Bundestags-Beschluss und macht es einfach, konkrete Forderungen zu formulieren. Persönliche Briefe wirken – besonders, wenn viele sie schreiben.
 
 **[Download Anschreiben-Template (PDF)](#)**
 - Fertig formuliertes Anschreiben mit rechtlichen Grundlagen
 - Persönlich anpassen
-- Füge deine Geschichte und lokale Bezüge hinzu
+- Füge Deine Geschichte und lokale Bezüge hinzu
 - Per E-Mail oder Brief versenden – und bleibe dran für Antworten
 
 #### Folge uns auf Instagram
 
-Werde unser Follower und nimm an unseren Instagram-Aktionen Teil!
+Werde Follower und nimm an unseren Instagram-Aktionen Teil!
 **[Link auf Instagram](#)**
 
 Placeholder für Instagram-iframes
@@ -100,41 +105,21 @@ Placeholder für Instagram-iframes
 
 #### Pressearbeit
 
-Hilf uns, Geschichten zu erzählen, die bewegen. Mach unsere Anliegen sichtbar.
+Hilf uns, Geschichten zu erzählen, die bewegen. Mach die Anliegen schwerstbehinderter Menschen sichtbar.
 
-
-
-## Glossar: Wissen ist Macht
-<navbar: Glossar>
-
-Die Welt der Behindertenhilfe ist voll von Fachbegriffen. Hier erklären wir die wichtigsten Konzepte – damit Sie mitreden können und Ihre Rechte kennen.
-
-### Besondere Wohnform
-
-Früher "stationäres Wohnen" genannt. Gemeinschaftliche Wohnform mit 24-Stunden-Betreuung, hoher Fachkraftquote und spezialisierter Pflege für Menschen mit schwersten Behinderungen.
-
-### Intensivbetreuung
-
-Betreuung für Menschen mit sehr hohem Pflege- und Unterstützungsbedarf (oft Pflegegrad IV-V), herausforderndem Verhalten oder medizinischer Komplexität. Erfordert hochqualifiziertes Personal.
-
-### Tagesstruktur & Förderstätte
-
-Therapeutische und pädagogische Angebote außerhalb der Wohnform. Für Menschen, die nicht werkstattfähig sind. Essenziell für Teilhabe und Förderung.
-
-### Inklusive WGs: nicht geeignet 
-
-eine Wohngemeinschaft, in der Menschen mit und ohne Behinderung gemeinsam zusammenleben. 
-
-Menschen mit schwersten Behinderungen brauchen Schutzräume, Reizarmut, kleine Gruppen und spezialisierte Fachkräfte. Inklusive WGs können diesen Bedarf nicht decken.
 
 
 ## Über uns: Eltern, die nicht aufgeben
 <navbar: Über uns>
 
-Wir sind der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V. – gegründet von betroffenen Eltern, die für ihre Kinder kämpfen und dabei ein System verändern wollen. Wir vertreten aktuell etwa 30 aktive Mitglieder, über 300 Newsletter-Abonnenten und eine wachsende Community auf Instagram.
+Wir, der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V. sind Eltern, die für ihre schwerstbehinderten Kinder kämpfen und dabei ein System verändern wollen. 
 
-> "Die Menschlichkeit einer Gesellschaft zeigt sich nicht zuletzt daran, wie sie mit den schwächsten Mitgliedern umgeht."
-> — Dr. Helmut Kohl, Bonn, 15.5.1998
+Unser Verein hat die Vision, die Versorgungslücke im Hinblick auf Intensivbetreuung zu schließen. Wir kämpfen dafür, dass
+
+1.	Der Rechtsanspruch auf die notwendige Intensivbetreuung nicht an der Verfügbarkeit scheitert
+2.	Innovative Wohnformen für Intensivwohngruppen entstehen, die die Trägervielfalt erhöhen
+3.	Die Förder- und Werkstätten als zwingender Bestandteil der Tagesstruktur anerkannt und gewährleistet werden 
+
 
 ### Was wir tun
 
@@ -143,12 +128,6 @@ Wir sind der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V.
 - Vernetzung von Betroffenen und Fachleuten
 - Sachverständigenarbeit in Ausschüssen
 
-### Was wir nicht leisten können
-
-- Individuelle Rechtsberatung
-- Vermittlung konkreter Wohnplätze
-- Einzelfall-Begleitung bei Behörden
-- Therapeutische oder pflegerische Beratung
 
 ### Satzung
 
@@ -158,19 +137,13 @@ Wir sind der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V.
 
 Vorstand: Kathrin Higgen, Dr. Ulrich von Zanthier, Uwe Higgen. Gemeinnützig anerkannt.
 
-### Reichweite
-
-- 16.323 Unterschriften auf change.org
-- 1.604 Bundestags-Petition
-- 771 Instagram-Follower
-
- Wir sind kein Beratungsdienst und können keine Rechtsberatung oder Einzelfall-Beratung leisten. Unsere Kraft und unser Fokus liegen auf der systemischen Veränderung – auf Gesetzen, Strukturen und politischen Entscheidungen, die ALLEN helfen. Für individuelle Unterstützung wenden Sie sich bitte an Pflegestützpunkte, Bezirke oder spezialisierte Beratungsstellen.
+Wir sind kein Beratungsdienst und können keine Rechtsberatung oder Einzelfall-Beratung leisten. Unsere Kraft und unser Fokus liegen auf der systemischen Veränderung – auf Gesetzen, Strukturen und politischen Entscheidungen, die ALLEN helfen. Für individuelle Unterstützung wende Dich bitte an Pflegestützpunkte, Bezirke oder spezialisierte Beratungsstellen.
 
 
 
 ---
 <footer>
-Bleiben Sie informiert über unsere Arbeit. Abonnieren Sie unseren Newsletter oder folgen Sie uns auf Instagram für aktuelle Berichte aus der Lobbyarbeit.
+Bleib informiert über unsere Arbeit. Abonniere unseren Newsletter oder folge uns auf Instagram.
 
 - [Newsletter abonnieren](#)
 - [Instagram folgen](#)

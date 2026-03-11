@@ -2,7 +2,7 @@
 :::
 
 # Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V.
-::: navbar: logo, zukunftwohnen
+::: navbar: logo, Verein Zukunftwohnen 
 :::
 
 Vom Bayerischen Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwerster Behinderung eine Stimme. 
@@ -14,13 +14,16 @@ Wenn junge Menschen mit komplexen Behinderungen erwachsen werden, endet oft jede
 18 Jahre lang erhalten Kinder und Jugendliche mit schwersten Behinderungen Förderung, Betreuung und Struktur. Dann endet die Schulpflicht – und damit oft jede Perspektive. Werkstätten und Förderstätten haben keine Kapazitäten. Wartelisten für Wohnheimplätze sind geschlossen oder erstrecken sich über Jahre. Der Rechtsanspruch auf ein selbstbestimmtes Leben in der Gemeinschaft (SGB IX) ist klar – doch die Versorgungslücke wächst. Nur noch wenige, große Träger bieten überhaupt diese lebenswichtige Intensivassistenz - und sind oftmals für die kommenden Jahre belegt. 
 
 
-### Stimmen betroffener Familien
+# Stimmen betroffener Familien
+::: navbar: Unsere Stimmen
+:::
 
-Eltern berichten, was fehlende Wohnplätze und Tagesstruktur konkret bedeuten.
+Eltern berichten in unserem [Youtube-Channel](https://www.youtube.com/@zukunftwohnen), was fehlende Wohnplätze und Tagesstruktur konkret bedeuten.
 
 ::: video-container
-**[Platzhalter Video 1](https://youtu.be/f5g_yrX6dzo)** | **Platzhalter Video 2** | **Platzhalter Video 3** 
+(<iframe width="560" height="315" src="https://www.youtube.com/embed/f5g_yrX6dzo?si=Xiq_vqe0wKVMHWzR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>)
 :::
+
 
 ## Unsere [Petition](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)
 
@@ -46,14 +49,14 @@ Vom Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwer
 
 Petition Pet 3-20-11-2171-029585 offiziell zur Erwägung an die Bundesregierung überwiesen – ein parlamentarischer Meilenstein.
 
-**[Petitionstext (PDF)](#)**
+**[Petitionstext (PDF)](/documents/pdf-sample.pdf)**
 
 #### Bayerischer Landtag
 <-Datum->
 
 Offizieller Sachverständigen-Status erreicht. Anhörung im Sozialausschuss Februar 2025
 
-**[Sachverständigen-Status (PDF)](#)**
+**[Sachverständigen-Status (PDF)](/documents/pdf-sample.pdf)**
 
 
 #### Das Petitions-Votum: Ein parlamentarischer Auftrag
@@ -63,7 +66,7 @@ Offizieller Sachverständigen-Status erreicht. Anhörung im Sozialausschuss Febr
 
 Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsene mit schwersten Behinderungen ist real, die Härten für Familien sind extrem, und Handeln ist geboten. Jetzt muss die Politik Taten folgen lassen.
 
-**[Petitions-Votum des Bundestages (PDF)](#)**
+**[Petitions-Votum des Bundestages (PDF)](/documents/pdf-sample.pdf)**
 
 
 ## Werde aktiv: Wir brauchen Deine Hände, nicht nur Deine Unterschrift
@@ -72,8 +75,7 @@ Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsen
 
 Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert sich nicht durch Appelle allein, sondern durch Menschen, die anpacken. Werde aktives Mitglied und hilf uns beim Networking, in der Pressearbeit oder beim direkten Kontakt zu Abgeordneten. Mit jede Stunde, die Du gibst, gibst Du schwerstbehinderte Menschen eine Perspektive. 
 
-[**Antrag auf aktive Mitgliedschaft (PDF)**
-](#)
+**[Antrag auf aktive Mitgliedschaft (PDF)](/documents/Zukunftwohnen_Mitgliedsantrag.pdf)**
 
 ### Wie Du mitmachen kannst
 #### Spenden
@@ -94,7 +96,7 @@ Verbinde Dich mit anderen Eltern, Einrichtungen und Verbänden. Gemeinsam erreic
 
 Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situation schwerstbehinderter Menschen aufmekrsam zu machen. Unser Template basiert auf dem offiziellen Bundestags-Beschluss und macht es einfach, konkrete Forderungen zu formulieren. Persönliche Briefe wirken – besonders, wenn viele sie schreiben.
 
-**[Download Anschreiben-Template (PDF)](#)**
+**[Download Anschreiben-Template (PDF)](/documents/pdf-sample.pdf)**
 - Fertig formuliertes Anschreiben mit rechtlichen Grundlagen
 - Persönlich anpassen
 - Füge Deine Geschichte und lokale Bezüge hinzu
@@ -103,7 +105,7 @@ Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situa
 #### Folge uns auf Instagram
 
 Werde Follower und nimm an unseren Instagram-Aktionen Teil!
-**[Link auf Instagram](#)**
+**[Link auf Instagram](https://www.instagram.com/zukunft.wohnen/)**
 
 ::: instagram-posts
 :::
@@ -138,7 +140,7 @@ Unser Verein hat die Vision, die Versorgungslücke im Hinblick auf Intensivbetre
 
 ### Satzung
 
-[Vereinsatzung downloaden (PDF)](#)
+[Vereinsatzung downloaden (PDF)](/documents/pdf-sample.pdf)
 
 ### Transparenz
 
@@ -152,7 +154,7 @@ Wir sind kein Beratungsdienst und können keine Rechtsberatung oder Einzelfall-B
 **[Schreibe uns eine Mail](#)**
 :::
 
-**[Vernetze mit uns auf Instagram](#)**
+**[Vernetze mit uns auf Instagram](https://www.instagram.com/zukunft.wohnen/)**
 
 
 ## Glossar: Wissen ist Macht
@@ -185,6 +187,6 @@ Menschen mit schwersten Behinderungen brauchen Schutzräume, Reizarmut, kleine G
 Bleib informiert über unsere Arbeit. Abonniere unseren Newsletter oder folge uns auf Instagram.
 
 - [Newsletter abonnieren](#)
-- [Instagram folgen](#)
-- [Spenden](#)
+- [Instagram folgen](https://www.instagram.com/zukunft.wohnen/)
+- [Spenden](#spenden)
 :::

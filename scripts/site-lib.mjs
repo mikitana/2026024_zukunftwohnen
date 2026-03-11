@@ -4,12 +4,12 @@ const PLUGIN_OPEN_PATTERN = /^\s*:::\s*([\w-]+)(?::\s*(.*?))?\s*$/i;
 const PLUGIN_CLOSE_PATTERN = /^\s*:::\s*$/;
 const NAVBAR_PLUGIN_NAME = "navbar";
 const FOOTER_PLUGIN_NAME = "footer";
-const FOOTER_OPEN_TAG = ":::footer";
-const FOOTER_CLOSE_TAG = ":::";
+const VIDEO_CONTAINER_PLUGIN_NAME = "video-container";
 const HEADING_PATTERN = /^\s{0,3}#{1,6}\s+\S+/;
 
 export const IMAGE_BY_SLUG = {
   "zukunftwohnen": "assets/close-up-disabled-friend-wheelchair.jpg",
+  "verein-zukunftwohnen": "assets/close-up-disabled-friend-wheelchair.jpg",
   "petition-unterstuetzen": "assets/img1.jpeg",
   "spenden-und-helfen": "assets/side-view-friends-meeting-outdoors.jpg",
   "glossar": "assets/close-up-hand-moving-wheel.jpg",
@@ -147,125 +147,165 @@ function normalizeMarkdownChunk(markdown) {
     .trim();
 }
 
-function splitFooterFromMarkdown(markdown) {
-  const lower = markdown.toLowerCase();
-  const openIndex = lower.indexOf(FOOTER_OPEN_TAG);
-  if (openIndex === -1) {
-    return { bodyMarkdown: markdown, footerMarkdown: "" };
-  }
+function shouldOpenInNewTab(href) {
+  return Boolean(href && !href.startsWith("#"));
+}
 
-  const footerStart = openIndex + FOOTER_OPEN_TAG.length;
-  const closeIndex = lower.indexOf(FOOTER_CLOSE_TAG, footerStart);
+function configureRenderer(renderer) {
+  const defaultLinkOpen = renderer.renderer.rules.link_open
+    ?? ((tokens, index, options, _env, self) => self.renderToken(tokens, index, options));
 
-  const bodyRaw = markdown.slice(0, openIndex).trimEnd();
-  const bodyWithoutDivider = bodyRaw.replace(/\n-{3,}\s*$/g, "").trimEnd();
+  renderer.renderer.rules.link_open = (tokens, index, options, env, self) => {
+    const token = tokens[index];
+    const href = token.attrGet("href") || "";
 
-  const footerMarkdown = (closeIndex === -1
-    ? markdown.slice(footerStart)
-    : markdown.slice(footerStart, closeIndex)
-  ).trim();
+    if (shouldOpenInNewTab(href)) {
+      token.attrSet("target", "_blank");
+      token.attrSet("rel", "noopener noreferrer");
+    }
 
-  return {
-    bodyMarkdown: bodyWithoutDivider,
-    footerMarkdown
+    return defaultLinkOpen(tokens, index, options, env, self);
   };
-}
 
-export function rewriteKnownLinks(markdown) {
-  return markdown.replace(/\[([^\]]*atzung[^\]]*downloaden[^\]]*\(PDF\))\]\(#\)/gi, (_match, label) => {
-    return `[${label}](documents/Satzung-FINAL-mit-Unterschriften.pdf)`;
-  });
-}
-
-function appendClass(attributes, className) {
-  if (/\bclass\s*=\s*/i.test(attributes)) {
-    return attributes.replace(/\bclass\s*=\s*(["'])(.*?)\1/i, (_match, quote, value) => {
-      const classSet = new Set(value.split(/\s+/).filter(Boolean));
-      classSet.add(className);
-      return `class=${quote}${Array.from(classSet).join(" ")}${quote}`;
-    });
-  }
-  return `${attributes} class="${className}"`.trim();
-}
-
-function ensureAttribute(attributes, key, value) {
-  const pattern = new RegExp(`\\b${key}\\s*=`, "i");
-  if (pattern.test(attributes)) {
-    return attributes;
-  }
-  return `${attributes} ${key}="${escapeHtml(value)}"`.trim();
-}
-
-export function decoratePlaceholderLinks(html) {
-  return html.replace(/<a\s+([^>]*?)href="#"([^>]*)>([\s\S]*?)<\/a>/gi, (full, before, after, inner) => {
-    if (inner.includes("placeholder-badge")) {
-      return full;
-    }
-
-    let attributes = `${before}href="#"${after}`.replace(/\s+/g, " ").trim();
-    attributes = appendClass(attributes, "placeholder-link");
-    attributes = ensureAttribute(attributes, "data-placeholder", "true");
-
-    const plainText = inner.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-    if (plainText) {
-      attributes = ensureAttribute(attributes, "aria-label", `${plainText} (Bald verfügbar)`);
-    }
-
-    return `<a ${attributes}>${inner}<span class="placeholder-badge" aria-hidden="true">Bald verfügbar</span><span class="sr-only"> Inhalt folgt in Kürze.</span></a>`;
-  });
+  return renderer;
 }
 
 function createMarkdownRenderer(renderer) {
   if (renderer) {
-    return renderer;
+    return configureRenderer(renderer);
   }
-  return new MarkdownIt({
+  return configureRenderer(new MarkdownIt({
     html: true,
     linkify: true,
     typographer: false
-  });
+  }));
+}
+
+function normalizeLocalDocumentLinks(html) {
+  return html.replace(/href=(['"])\/documents\//gi, "href=$1documents/");
 }
 
 function renderMarkdownToHtml(renderer, markdown) {
-  const rewritten = rewriteKnownLinks(markdown);
-  const rawHtml = renderer.render(rewritten);
-  return decoratePlaceholderLinks(rawHtml);
+  return normalizeLocalDocumentLinks(renderer.render(markdown));
+}
+
+function extractAttribute(markup, attributeName) {
+  const pattern = new RegExp(`${attributeName}\\s*=\\s*(["'])(.*?)\\1`, "i");
+  return markup.match(pattern)?.[2] || "";
+}
+
+function extractYouTubeVideoId(src) {
+  if (!src) {
+    return "";
+  }
+
+  const match = src.match(/youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{11})/i);
+  return match?.[1] || "";
+}
+
+function normalizeYouTubeIframe(iframeMarkup) {
+  const src = extractAttribute(iframeMarkup, "src");
+  const videoId = extractYouTubeVideoId(src);
+  if (!videoId) {
+    return iframeMarkup;
+  }
+
+  const title = extractAttribute(iframeMarkup, "title") || "YouTube video player";
+  const canonicalSrc = `https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`;
+
+  return `<iframe class="video-embed video-embed--youtube" width="560" height="315" src="${canonicalSrc}" title="${escapeHtml(title)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen data-video-provider="youtube" data-video-id="${videoId}"></iframe>`;
+}
+
+function normalizeIframeMarkup(markup) {
+  if (!/^<iframe[\s\S]*<\/iframe>$/i.test(markup)) {
+    return markup;
+  }
+
+  if (/youtube(?:-nocookie)?\.com\/embed\//i.test(markup)) {
+    return normalizeYouTubeIframe(markup);
+  }
+
+  return markup;
+}
+
+function normalizeVideoContainerMarkup(lines) {
+  const content = lines.join("\n").trim();
+  if (!content) {
+    return "";
+  }
+
+  const iframeOnlyMatch = content.match(/^\(\s*(<iframe[\s\S]*<\/iframe>)\s*\)$/i);
+  const rawMarkup = (iframeOnlyMatch?.[1] || content).trim();
+  return normalizeIframeMarkup(rawMarkup);
+}
+
+function renderPluginBlock(pluginName, lines) {
+  if (pluginName === VIDEO_CONTAINER_PLUGIN_NAME) {
+    const embedMarkup = normalizeVideoContainerMarkup(lines);
+    if (!embedMarkup) {
+      return [];
+    }
+
+    return [
+      "<div class=\"video-container\">",
+      embedMarkup,
+      "</div>"
+    ];
+  }
+
+  return lines;
 }
 
 function buildChapterMarkdown(lines, start, end) {
   const filtered = [];
+  const footerLines = [];
   let inPluginBlock = null;
+  let pluginLines = [];
+
+  function flushPluginBlock() {
+    if (!inPluginBlock) {
+      return;
+    }
+
+    if (inPluginBlock === FOOTER_PLUGIN_NAME) {
+      footerLines.push(...pluginLines);
+    } else {
+      filtered.push(...renderPluginBlock(inPluginBlock, pluginLines));
+    }
+
+    inPluginBlock = null;
+    pluginLines = [];
+  }
 
   for (let i = start; i <= end; i += 1) {
     const line = lines[i];
     
-    // Check if this is a plugin opening line
     const plugin = parsePluginOpen(line);
     if (plugin) {
+      flushPluginBlock();
       inPluginBlock = plugin.name;
-      // Preserve footer tags, skip other plugin opening lines
-      if (plugin.name === FOOTER_PLUGIN_NAME) {
-        filtered.push(line);
-      }
       continue;
     }
     
-    // Check if this closes a plugin block
     if (inPluginBlock && isPluginClose(line)) {
-      // Preserve footer closing tags, skip other plugin closing lines
-      if (inPluginBlock === FOOTER_PLUGIN_NAME) {
-        filtered.push(line);
-      }
-      inPluginBlock = null;
+      flushPluginBlock();
       continue;
     }
     
-    // Keep all content lines (including those inside plugins)
-    filtered.push(line);
+    if (inPluginBlock) {
+      pluginLines.push(line);
+    } else {
+      filtered.push(line);
+    }
   }
 
-  const chunk = filtered.join("\n");
-  return normalizeMarkdownChunk(chunk);
+  flushPluginBlock();
+
+  let bodyMarkdown = normalizeMarkdownChunk(filtered.join("\n"));
+  bodyMarkdown = bodyMarkdown.replace(/\n-{3,}\s*$/g, "").trimEnd();
+  const footerMarkdown = normalizeMarkdownChunk(footerLines.join("\n"));
+
+  return { bodyMarkdown, footerMarkdown };
 }
 
 export function buildSiteModel(rawMarkdown, options = {}) {
@@ -296,14 +336,13 @@ export function buildSiteModel(rawMarkdown, options = {}) {
       ? chapterStarts[index + 1] - 1
       : lines.length - 1;
 
-    const sectionMarkdown = buildChapterMarkdown(lines, start, end);
-    const footerSplit = splitFooterFromMarkdown(sectionMarkdown);
+    const { bodyMarkdown, footerMarkdown: chapterFooter } = buildChapterMarkdown(lines, start, end);
 
-    if (footerSplit.footerMarkdown && !footerMarkdown) {
-      footerMarkdown = footerSplit.footerMarkdown;
+    if (chapterFooter && !footerMarkdown) {
+      footerMarkdown = chapterFooter;
     }
 
-    const html = renderMarkdownToHtml(renderer, footerSplit.bodyMarkdown || sectionMarkdown);
+    const html = renderMarkdownToHtml(renderer, bodyMarkdown);
 
     sections.push({
       ...navItems[index],

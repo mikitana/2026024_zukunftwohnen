@@ -4,8 +4,45 @@ const logoLink = document.querySelector("[data-logo-link]");
 const siteNav = document.querySelector(".site-nav");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const mobileNavQuery = window.matchMedia("(max-width: 42rem)");
+const videoEmbeds = Array.from(document.querySelectorAll("iframe[data-video-provider='youtube']"));
 
 let closeNavigationMenu = () => {};
+
+function createLocalYoutubeFallback(videoId) {
+  const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+  const link = document.createElement("a");
+  link.className = "video-fallback-link";
+  link.href = watchUrl;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.setAttribute("aria-label", "Video auf YouTube öffnen");
+
+  const image = document.createElement("img");
+  image.className = "video-fallback-image";
+  image.src = thumbnailUrl;
+  image.alt = "Video auf YouTube öffnen";
+  image.loading = "lazy";
+
+  const label = document.createElement("span");
+  label.className = "video-fallback-label";
+  label.textContent = "Video auf YouTube öffnen";
+
+  link.append(image, label);
+  return link;
+}
+
+if (window.location.protocol === "file:" && videoEmbeds.length) {
+  for (const embed of videoEmbeds) {
+    const videoId = embed.dataset.videoId;
+    if (!videoId) {
+      continue;
+    }
+
+    embed.replaceWith(createLocalYoutubeFallback(videoId));
+  }
+}
 
 if (siteNav && navToggle) {
   const setNavigationMenuState = (isOpen) => {

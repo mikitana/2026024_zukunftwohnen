@@ -9,7 +9,7 @@ const rootDir = path.resolve(scriptDir, "..");
 
 async function main() {
   const [contentMarkdown, template] = await Promise.all([
-    readFile(path.join(rootDir, "content.md"), "utf8"),
+    readFile(path.join(rootDir, "CONTENT.md"), "utf8"),
     readFile(path.join(rootDir, "src/template.html"), "utf8")
   ]);
 
@@ -17,7 +17,7 @@ async function main() {
   const html = renderPage({
     template,
     model,
-    logoPath: "assets/ZW_Logo2.png",
+    logoPath: "assets/ZW_Logo_transparent.png",
     pageTitle: "Zukunft Wohnen"
   });
 

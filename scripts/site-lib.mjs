@@ -1,9 +1,12 @@
 import MarkdownIt from "markdown-it";
 
-const NAVBAR_PATTERN = /^\s*<navbar:\s*(.+?)\s*>\s*$/i;
+const PLUGIN_OPEN_PATTERN = /^\s*:::\s*([\w-]+)(?::\s*(.*?))?\s*$/i;
+const PLUGIN_CLOSE_PATTERN = /^\s*:::\s*$/;
+const NAVBAR_PLUGIN_NAME = "navbar";
+const FOOTER_PLUGIN_NAME = "footer";
+const FOOTER_OPEN_TAG = ":::footer";
+const FOOTER_CLOSE_TAG = ":::";
 const HEADING_PATTERN = /^\s{0,3}#{1,6}\s+\S+/;
-const FOOTER_OPEN_TAG = "<footer>";
-const FOOTER_CLOSE_TAG = "</footer>";
 
 export const IMAGE_BY_SLUG = {
   "zukunftwohnen": "assets/close-up-disabled-friend-wheelchair.jpg",
@@ -13,8 +16,22 @@ export const IMAGE_BY_SLUG = {
   "ueber-uns": "assets/img3.jpg"
 };
 
-function isNavbarLine(line) {
-  return NAVBAR_PATTERN.test(line);
+function parsePluginOpen(line) {
+  const match = line.match(PLUGIN_OPEN_PATTERN);
+  if (!match) return null;
+  return {
+    name: match[1].toLowerCase(),
+    config: (match[2] || "").trim()
+  };
+}
+
+function isPluginClose(line) {
+  return PLUGIN_CLOSE_PATTERN.test(line);
+}
+
+function isNavbarMarkerLine(line) {
+  const plugin = parsePluginOpen(line);
+  return plugin?.name === NAVBAR_PLUGIN_NAME;
 }
 
 function normalizeWhitespace(value) {
@@ -48,12 +65,14 @@ function parseMarkers(lines) {
 
   for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
     const line = lines[lineIndex];
-    const match = line.match(NAVBAR_PATTERN);
-    if (!match) {
+    const plugin = parsePluginOpen(line);
+    
+    if (!plugin || plugin.name !== NAVBAR_PLUGIN_NAME) {
       continue;
     }
 
-    const tokens = match[1]
+    const config = plugin.config;
+    const tokens = config
       .split(",")
       .map((token) => normalizeWhitespace(token))
       .filter(Boolean);
@@ -69,8 +88,9 @@ function parseMarkers(lines) {
       }
     }
 
+    // Skip navbar plugins without labels (empty navbar markers)
     if (!labels.length) {
-      throw new Error(`Navbar marker on line ${lineIndex + 1} has no chapter label.`);
+      continue;
     }
 
     markers.push({
@@ -81,7 +101,7 @@ function parseMarkers(lines) {
   }
 
   if (!markers.length) {
-    throw new Error("No <navbar: ...> chapter markers were found in content.md.");
+    throw new Error("No ::: navbar plugins with labels were found in content.md.");
   }
 
   return markers;
@@ -97,7 +117,7 @@ function findChapterStarts(lines, markers) {
 
     for (let cursor = marker.lineIndex; cursor > previousStart; cursor -= 1) {
       const line = lines[cursor];
-      if (isNavbarLine(line)) {
+      if (isNavbarMarkerLine(line)) {
         continue;
       }
       if (HEADING_PATTERN.test(line)) {
@@ -213,11 +233,39 @@ function renderMarkdownToHtml(renderer, markdown) {
 }
 
 function buildChapterMarkdown(lines, start, end) {
-  const slice = lines
-    .slice(start, end + 1)
-    .filter((line) => !isNavbarLine(line))
-    .join("\n");
-  return normalizeMarkdownChunk(slice);
+  const filtered = [];
+  let inPluginBlock = null;
+
+  for (let i = start; i <= end; i += 1) {
+    const line = lines[i];
+    
+    // Check if this is a plugin opening line
+    const plugin = parsePluginOpen(line);
+    if (plugin) {
+      inPluginBlock = plugin.name;
+      // Preserve footer tags, skip other plugin opening lines
+      if (plugin.name === FOOTER_PLUGIN_NAME) {
+        filtered.push(line);
+      }
+      continue;
+    }
+    
+    // Check if this closes a plugin block
+    if (inPluginBlock && isPluginClose(line)) {
+      // Preserve footer closing tags, skip other plugin closing lines
+      if (inPluginBlock === FOOTER_PLUGIN_NAME) {
+        filtered.push(line);
+      }
+      inPluginBlock = null;
+      continue;
+    }
+    
+    // Keep all content lines (including those inside plugins)
+    filtered.push(line);
+  }
+
+  const chunk = filtered.join("\n");
+  return normalizeMarkdownChunk(chunk);
 }
 
 export function buildSiteModel(rawMarkdown, options = {}) {

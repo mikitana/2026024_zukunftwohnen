@@ -80,9 +80,7 @@ Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert s
 ### Wie Du mitmachen kannst
 #### Spenden
 
-Placeholder text wofür brauchen wir Spenden
-
-Placeholder Bankkonto
+Bankkonto
 
 #### Networking
 
@@ -104,8 +102,9 @@ Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situa
 
 #### Folge uns auf Instagram
 
-Werde Follower und nimm an unseren Instagram-Aktionen Teil!
-**[Link auf Instagram](https://www.instagram.com/zukunft.wohnen/)**
+Werde unser Follower und nimm an unseren Instagram-Aktionen Teil!
+
+**[Unser Instagram](https://www.instagram.com/zukunft.wohnen/)**
 
 ::: instagram-posts
 :::

@@ -92,7 +92,7 @@ Verbinde Dich mit anderen Eltern, Einrichtungen und Verbänden. Gemeinsam erreic
 
 ### Politische Lobbyarbeit
 
-Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situation schwerstbehinderter Menschen aufmekrsam zu machen. Unser Template basiert auf dem offiziellen Bundestags-Beschluss und macht es einfach, konkrete Forderungen zu formulieren. Persönliche Briefe wirken – besonders, wenn viele sie schreiben.
+Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situation schwerstbehinderter Menschen aufmerksam zu machen. Unser Template basiert auf dem offiziellen Bundestags-Beschluss und macht es einfach, konkrete Forderungen zu formulieren. Persönliche Briefe wirken – besonders, wenn viele sie schreiben.
 
 **[Download Anschreiben-Template (PDF)](/documents/20260312_Template_Abgeordnetenschreiben.odt)**
 - Fertig formuliertes Anschreiben mit rechtlichen Grundlagen
@@ -154,9 +154,7 @@ Wir sind kein Beratungsdienst und können keine Rechtsberatung oder Einzelfall-B
 
 ### Kontakt
 
-::: email
-**[Schreibe uns eine Mail](#)**
-:::
+::: contact-form :::
 
 **[Vernetze mit uns auf Instagram](https://www.instagram.com/zukunft.wohnen/)**
 

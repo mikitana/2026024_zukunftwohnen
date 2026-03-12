@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt | Zukunft Wohnen</title>
+  <meta name="description" content="Kontaktformular von Zukunft Wohnen.">
+  <link rel="icon" href="assets/ZW_Logo_transparent.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/ZW_Logo_transparent.png">
+  <link rel="stylesheet" href="src/styles.css">
+  <script src="src/app.js" defer></script>
+</head>
+<body class="contact-page">
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+  <main id="main-content" class="contact-page__main">
+    <section class="contact-page__section">
+      <a class="contact-page__back" href="index.html">Zurück zur Startseite</a>
+      <div class="contact-page__brand">
+        <img src="assets/ZW_Logo_transparent.png" alt="Zukunft Wohnen" class="brand-logo">
+      </div>
+      <div class="contact-page__content">
+        <h1>Kontaktformular</h1>
+        <div class="contact-panel">
+  <form 
+    class="contact-form"
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    data-netlify-recaptcha="true"
+    netlify-honeypot="bot-field"
+    data-contact-form
+    novalidate
+  >
+    <input type="hidden" name="form-name" value="contact">
+
+    <div class="contact-form__grid">
+      <div class="contact-form__field">
+        <label for="contact-name">Name</label>
+        <input
+          id="contact-name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+        >
+      </div>
+
+      <div class="contact-form__field">
+        <label for="contact-email">E-Mail</label>
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+        >
+      </div>
+    </div>
+
+    <div class="contact-form__field">
+      <label for="contact-subject">Betreff</label>
+      <input
+        id="contact-subject"
+        name="subject"
+        type="text"
+        maxlength="120"
+        placeholder="Worum geht es?"
+      >
+    </div>
+
+    <div class="contact-form__field">
+      <label for="contact-message">Nachricht</label>
+      <textarea
+        id="contact-message"
+        name="message"
+        rows="7"
+        required
+      ></textarea>
+    </div>
+
+    <!-- Honeypot spam trap -->
+    <div class="contact-form__trap" aria-hidden="true">
+      <label for="contact-bot-field">Bitte nicht ausfüllen</label>
+      <input
+        id="contact-bot-field"
+        name="bot-field"
+        type="text"
+        tabindex="-1"
+        autocomplete="off"
+      >
+    </div>
+
+    <!-- Netlify reCAPTCHA -->
+    <div data-netlify-recaptcha="true"></div>
+
+    <div class="contact-form__actions">
+      <button class="contact-form__submit" type="submit">
+        Nachricht senden
+      </button>
+
+      <p class="contact-form__privacy">
+        Mit dem Absenden wird Deine Nachricht über Netlify Forms übermittelt.
+        Teile nur Daten, die Du uns wirklich senden möchtest.
+      </p>
+    </div>
+
+    <p class="contact-form__status" data-contact-form-status aria-live="polite"></p>
+  </form>
+
+  <p class="contact-fallback">
+    Falls das Formular nicht funktioniert, lade die Seite neu oder versuche es später erneut.
+  </p>
+
+  <noscript>
+    <p>
+      Zum Senden der Nachricht muss JavaScript aktiviert sein.
+    </p>
+  </noscript>
+</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

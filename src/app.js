@@ -3,9 +3,80 @@ const sections = Array.from(document.querySelectorAll("[data-section]"));
 const logoLink = document.querySelector("[data-logo-link]");
 const siteNav = document.querySelector(".site-nav");
 const navToggle = document.querySelector("[data-nav-toggle]");
+const contactForm = document.querySelector("[data-contact-form]");
+const contactMailLink = document.querySelector("[data-contact-mail-link]");
 const mobileNavQuery = window.matchMedia("(max-width: 42rem)");
 
+const contactRecipient = ["kontakt", "zukunftwohnen.info"].join("@");
+
 let closeNavigationMenu = () => {};
+
+function encodeFormData(formData) {
+  return new URLSearchParams(Array.from(formData.entries()).map(([key, value]) => [key, String(value)])).toString();
+}
+
+if (contactMailLink instanceof HTMLAnchorElement) {
+  contactMailLink.href = `mailto:${contactRecipient}`;
+}
+
+if (contactForm instanceof HTMLFormElement) {
+  const submitButton = contactForm.querySelector(".contact-form__submit");
+  const statusElement = contactForm.querySelector("[data-contact-form-status]");
+
+  const setStatus = (message, tone = "") => {
+    if (!(statusElement instanceof HTMLElement)) {
+      return;
+    }
+
+    statusElement.textContent = message;
+    statusElement.classList.toggle("is-error", tone === "error");
+    statusElement.classList.toggle("is-success", tone === "success");
+  };
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!contactForm.reportValidity()) {
+      setStatus("Bitte pruefe die markierten Felder.", "error");
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const honeypot = String(formData.get("bot-field") || "").trim();
+
+    if (honeypot) {
+      setStatus("Die Nachricht konnte nicht vorbereitet werden.", "error");
+      return;
+    }
+
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+    }
+
+    setStatus("Nachricht wird gesendet...");
+
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: encodeFormData(formData)
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Unexpected response: ${response.status}`);
+      }
+
+      contactForm.reset();
+      setStatus("Vielen Dank. Deine Nachricht wurde gesendet.", "success");
+    }).catch(() => {
+      setStatus("Die Nachricht konnte nicht gesendet werden. Bitte nutze den direkten E-Mail-Link darunter.", "error");
+    }).finally(() => {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+      }
+    });
+  });
+}
 
 if (siteNav && navToggle) {
   const setNavigationMenuState = (isOpen) => {

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{PAGE_TITLE}}</title>
+  <meta name="description" content="Kontaktformular von Zukunft Wohnen.">
+  <link rel="icon" href="{{LOGO_PATH}}" type="image/png">
+  <link rel="apple-touch-icon" href="{{LOGO_PATH}}">
+  <link rel="stylesheet" href="src/styles.css">
+  <script src="src/app.js" defer></script>
+</head>
+<body class="contact-page">
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+  <main id="main-content" class="contact-page__main">
+    <section class="contact-page__section">
+      <a class="contact-page__back" href="index.html">Zurück zur Startseite</a>
+      <div class="contact-page__brand">
+        <img src="{{LOGO_PATH}}" alt="Zukunft Wohnen" class="brand-logo">
+      </div>
+      <div class="contact-page__content">
+        <h1>Kontaktformular</h1>
+        {{CONTACT_FORM}}
+      </div>
+    </section>
+  </main>
+</body>
+</html>

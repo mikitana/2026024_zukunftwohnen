@@ -89,6 +89,22 @@ Nach dem Video.
   assert.match(page, /<button class="video-preview__button" type="button" data-video-activate/i);
 });
 
+test("buildSiteModel injects the dedicated contact form partial", () => {
+  const model = buildSiteModel(`
+# Start
+::: navbar-chapter="Start" :::
+Vor dem Formular.
+
+::: contact-form :::
+
+Nach dem Formular.
+  `.trim());
+
+  assert.match(model.sections[0].html, /Vor dem Formular\./);
+  assert.match(model.sections[0].html, /class="contact-launch__button" href="contact\.html" target="_blank" rel="noopener noreferrer"/);
+  assert.match(model.sections[0].html, /Nach dem Formular\./);
+});
+
 test("buildSiteModel rejects non-YouTube video URLs", () => {
   const sample = `# Start\n::: navbar-chapter="Start" :::\n:::video="https://example.com/video.mp4"\n:::`;
 

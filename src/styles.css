@@ -410,6 +410,191 @@ a:hover {
   white-space: nowrap;
 }
 
+.contact-panel {
+  margin: 1.4rem 0 1rem;
+  padding: 1.2rem;
+  background: linear-gradient(180deg, rgba(243, 91, 16, 0.08), rgba(23, 54, 90, 0.04));
+  border: 1px solid rgba(23, 54, 90, 0.12);
+}
+
+.contact-launch {
+  margin: 1.4rem 0 1rem;
+  padding: 1.2rem;
+  background: linear-gradient(180deg, rgba(15, 42, 74, 0.06), rgba(243, 91, 16, 0.06));
+  border: 1px solid rgba(23, 54, 90, 0.12);
+}
+
+.contact-launch__intro {
+  margin: 0 0 0.9rem;
+}
+
+.contact-launch__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 15rem;
+  padding: 0.95rem 1.3rem;
+  background: var(--signal);
+  color: #fff;
+  font: 700 1rem/1 var(--body-font);
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.contact-launch__button:hover {
+  background: var(--signal-deep);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.contact-intro,
+.contact-fallback {
+  margin: 0 0 1rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-form__field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.contact-form__field label {
+  font-weight: 700;
+  color: var(--contrast);
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  width: 100%;
+  border: 1px solid rgba(23, 54, 90, 0.24);
+  background: rgba(255, 255, 255, 0.98);
+  color: var(--ink);
+  padding: 0.78rem 0.85rem;
+  font: inherit;
+}
+
+.contact-form__field textarea {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+.contact-form__field input::placeholder,
+.contact-form__field textarea::placeholder {
+  color: rgba(23, 54, 90, 0.58);
+}
+
+.contact-form__field input:user-invalid,
+.contact-form__field textarea:user-invalid {
+  border-color: var(--signal-deep);
+  box-shadow: inset 0 0 0 1px rgba(201, 71, 6, 0.2);
+}
+
+.contact-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.contact-form__submit {
+  border: 0;
+  background: var(--signal);
+  color: #fff;
+  font: 700 0.98rem/1 var(--body-font);
+  letter-spacing: 0.02em;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.contact-form__submit:hover {
+  background: var(--signal-deep);
+  transform: translateY(-1px);
+}
+
+.contact-form__submit:disabled {
+  cursor: wait;
+  background: rgba(23, 54, 90, 0.55);
+  transform: none;
+}
+
+.contact-form__privacy {
+  flex: 1 1 18rem;
+  margin: 0;
+  font-size: 0.96rem;
+  color: var(--ink-soft);
+}
+
+.contact-form__status {
+  min-height: 1.55rem;
+  margin: 0;
+  font-weight: 700;
+  color: var(--contrast);
+}
+
+.contact-form__status.is-error {
+  color: var(--signal-deep);
+}
+
+.contact-form__status.is-success {
+  color: #1b6b3a;
+}
+
+.contact-form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-page {
+  background:
+    radial-gradient(circle at top left, rgba(243, 91, 16, 0.16), transparent 30%),
+    linear-gradient(180deg, #f7fbff, #ffffff 26%);
+}
+
+.contact-page__main {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.contact-page__section {
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 1.4rem;
+}
+
+.contact-page__back {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.contact-page__brand {
+  margin-bottom: 0.8rem;
+}
+
+.contact-page__content h1 {
+  margin-top: 0;
+}
+
+.contact-page__lead {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+}
+
 .site-footer {
   background: var(--contrast);
   color: #edf4ff;
@@ -531,6 +716,30 @@ a:hover {
 
   .chapter-content h2 {
     font-size: clamp(1.3rem, 7.2vw, 1.75rem);
+  }
+
+  .contact-panel {
+    padding: 1rem;
+  }
+
+  .contact-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form__actions {
+    align-items: stretch;
+  }
+
+  .contact-form__submit {
+    width: 100%;
+  }
+
+  .contact-launch__button {
+    width: 100%;
+  }
+
+  .contact-page__main {
+    padding: 1rem 0.8rem 3rem;
   }
 }
 

@@ -7,6 +7,7 @@ const NAVBAR_CHAPTER_PLUGIN_NAME = "navbar-chapter";
 const NAVBAR_CHAPTER_WITH_LOGO_PLUGIN_NAME = "navbar-chapter-with-logo";
 const CHAPTER_MEDIA_PLUGIN_NAME = "chapter-media";
 const FOOTER_PLUGIN_NAME = "footer";
+const CONTACT_FORM_PLUGIN_NAME = "contact-form";
 const VIDEO_PLUGIN_NAME = "video";
 const VIDEO_CONTAINER_PLUGIN_NAME = "video-container";
 const HEADING_PATTERN = /^\s{0,3}#{1,6}\s+\S+/;
@@ -426,6 +427,18 @@ function renderVideoMarkup(plugin) {
   ];
 }
 
+function renderSelfClosingPlugin(plugin) {
+  if (plugin.name === CONTACT_FORM_PLUGIN_NAME) {
+    return [
+
+      '<a class="contact-launch__button" href="contact.html" target="_blank" rel="noopener noreferrer">Schreibe uns eine Email über Kontaktform</a>',
+
+    ];
+  }
+
+  return [];
+}
+
 function renderPluginBlock(plugin, lines) {
   if (plugin.name === VIDEO_PLUGIN_NAME) {
     return renderVideoMarkup(plugin);
@@ -476,6 +489,7 @@ function buildChapterMarkdown(lines, start, end) {
       flushPluginBlock();
 
       if (plugin.selfClosing) {
+        filtered.push(...renderSelfClosingPlugin(plugin));
         continue;
       }
 

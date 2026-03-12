@@ -632,6 +632,16 @@ function renderNav(navItems) {
     .join("\n");
 }
 
+function renderPrimaryNavItem(navItems) {
+  const firstItem = navItems[0];
+
+  if (!firstItem) {
+    return "";
+  }
+
+  return `<a class="nav-link nav-link--primary-mobile is-active" href="#${firstItem.id}" data-nav-link data-target="${firstItem.id}" aria-current="true">${escapeHtml(firstItem.label)}</a>`;
+}
+
 function renderSections(sections) {
   return sections
     .map((section, index) => {
@@ -657,6 +667,7 @@ export function renderPage({ template, model, logoPath, pageTitle }) {
     PAGE_TITLE: escapeHtml(pageTitle),
     LOGO_PATH: model.logoPath || logoPath || "",
     LOGO_TARGET: model.firstSectionId,
+    PRIMARY_NAV_ITEM: renderPrimaryNavItem(model.navItems),
     NAV_ITEMS: renderNav(model.navItems),
     CHAPTERS: renderSections(model.sections),
     FOOTER_CONTENT: model.footerHtml || "<p>Weitere Informationen folgen.</p>"

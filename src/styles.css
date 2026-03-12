@@ -185,6 +185,10 @@ a:hover {
   transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
 }
 
+.nav-link--primary-mobile {
+  display: none;
+}
+
 .nav-link:hover {
   color: var(--signal-deep);
   background: rgba(243, 91, 16, 0.08);
@@ -703,12 +707,21 @@ a:hover {
 
   .header-inner {
     gap: 0.7rem;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
   }
 
   .brand-link {
     width: fit-content;
+  }
+
+  .nav-link--primary-mobile {
+    display: inline-flex;
+    min-width: 0;
+    justify-content: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .js-ready .nav-toggle {
@@ -733,6 +746,10 @@ a:hover {
     display: flex;
   }
 
+  .js-ready .nav-scroll .nav-link:first-child {
+    display: none;
+  }
+
   .js-ready .nav-link {
     width: 100%;
     justify-content: flex-start;
@@ -740,9 +757,21 @@ a:hover {
     background: rgba(15, 42, 74, 0.05);
   }
 
+  .js-ready .nav-link--primary-mobile {
+    width: auto;
+    box-shadow: inset 0 -2px 0 rgba(15, 42, 74, 0.28);
+    background: transparent;
+  }
+
   .js-ready .nav-link.is-active {
     background: var(--contrast);
     color: #ffffff;
+    box-shadow: inset 0 -3px 0 var(--signal);
+  }
+
+  .js-ready .nav-link--primary-mobile.is-active {
+    background: transparent;
+    color: var(--contrast);
     box-shadow: inset 0 -3px 0 var(--signal);
   }
 

@@ -21,7 +21,7 @@ Der Satzungszweck wird insbesondere durch Öffentlichkeitsarbeit sowie durch die
 18 Jahre lang erhalten Kinder und Jugendliche mit schwersten Behinderungen Förderung, Betreuung und Struktur. Dann endet die Schulpflicht – und damit oft jede Perspektive. Werkstätten und Förderstätten haben keine Kapazitäten. Wartelisten für Wohnheimplätze sind geschlossen oder erstrecken sich über Jahre. Der Rechtsanspruch auf ein selbstbestimmtes Leben in der Gemeinschaft (SGB IX) ist klar – doch die Versorgungslücke wächst. Nur noch wenige, große Träger bieten überhaupt diese lebenswichtige Intensivassistenz - und sind oftmals für die kommenden Jahre belegt. 
 
 
-## Unsere [Petition](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)
+## Unsere Petition
 
 ::: navbar-chapter="Petition unterstützen" :::
 ::: chapter-media="assets/img1.jpeg" :::
@@ -32,7 +32,7 @@ Wir fordern:
 - Aufbau ausreichender Kapazitäten durch politische Task Force
 - Kündigungsschutz für bestehende Wohnplätze
 
-[Petition unterstützen](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)
+**[Petition auf change.org unterstützen](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)**
 
 ### Unsere Meilensteine
 
@@ -40,21 +40,22 @@ Vom Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwer
 
 Über 16.000 Menschen unterstützen unsere Forderungn mit ihrer Stimme. Das ist erst der Anfang.
 
+#### Bayerischer Landtag
+
+20.02.2025
+
+Offizieller Sachverständigen-Status erreicht. Anhörung im Sozialausschuss Februar 2025
+
+**[Sachverständigen-Status (PDF)](/documents/pdf-sample.pdf)**
+**[Lese den Artikel über die Anhörung](https://www.bayerische-staatszeitung.de/staatszeitung/landtag/detailansicht-landtag/artikel/fehlende-pflegeplaetze-und-fachkraeftemangel-bedrohen-inklusion.html#topPosition)**
+**[Schau dir das Video über die Anhörung auf YouTube](https://www.youtube.com/watch?v=Rpb9llcHdHw&t=1s)**
+
 #### Bundestag
 <-Datum->
 
 Petition Pet 3-20-11-2171-029585 offiziell zur Erwägung an die Bundesregierung überwiesen – ein parlamentarischer Meilenstein.
 
 **[Petitionstext (PDF)](/documents/pdf-sample.pdf)**
-
-#### Bayerischer Landtag
-<-Datum->
-
-Offizieller Sachverständigen-Status erreicht. Anhörung im Sozialausschuss Februar 2025
-
-**[Sachverständigen-Status (PDF)](/documents/pdf-sample.pdf)**
-**[Lese den Artikel über die Anhörung](https://www.bayerische-staatszeitung.de/staatszeitung/landtag/detailansicht-landtag/artikel/fehlende-pflegeplaetze-und-fachkraeftemangel-bedrohen-inklusion.html#topPosition)**
-
 
 #### Das Petitions-Votum: Ein parlamentarischer Auftrag
 <-Datum->
@@ -66,6 +67,7 @@ Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsen
 **[Petitions-Votum des Bundestages (PDF)](/documents/pdf-sample.pdf)**
 
 
+
 ## Werde aktiv: Wir brauchen Deine Hände, nicht nur Deine Unterschrift
 ::: navbar-chapter="Spenden und Helfen" :::
 ::: chapter-media="assets/side-view-friends-meeting-outdoors.jpg" :::
@@ -74,40 +76,38 @@ Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert s
 
 **[Antrag auf aktive Mitgliedschaft (PDF)](/documents/Zukunftwohnen_Mitgliedsantrag.pdf)**
 
-### Wie Du mitmachen kannst
-#### Spenden
+### Spenden
 
-Bankkonto
+**Spendenkonto: Deutsche Bank**
+**IBAN: DE43 7007 0024 0090 9440 00**
 
-#### Networking
+Gemeinsam für eine bessere Zukunft für alle.
+
+### Networking
 
 Verbinde Dich mit anderen Eltern, Einrichtungen und Verbänden. Gemeinsam erreichen wir mehr.
 
-::: newsletter
-**[Abonniere unser Newsletter](#)** 
-:::
+**[Abonniere unser Newsletter](https://515aa0b4.sibforms.com/serve/MUIFAHfz4KR89rGjodUpzrHWpiM4w0G0B_RY7-0KN9GXx-TcEr50mJPCI7uWDm9qIEuvZYNuyr7ayGyhPdPzsK898Q9k_DekwPU9u2TzrWvbXnDGnRKi9_t6GYLYA2rKVVQrtaK4kegPkYhiquyxK97UHtKoXkHRHE-X-X0SCCAFUj2S9oVYHGLV84OJvqpBa4Rw-eS6CjGMukSM)** 
 
-#### Politische Lobbyarbeit
+
+### Politische Lobbyarbeit
 
 Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situation schwerstbehinderter Menschen aufmekrsam zu machen. Unser Template basiert auf dem offiziellen Bundestags-Beschluss und macht es einfach, konkrete Forderungen zu formulieren. Persönliche Briefe wirken – besonders, wenn viele sie schreiben.
 
-**[Download Anschreiben-Template (PDF)](/documents/pdf-sample.pdf)**
+**[Download Anschreiben-Template (PDF)](/documents/20260312_Template_Abgeordnetenschreiben.odt)**
 - Fertig formuliertes Anschreiben mit rechtlichen Grundlagen
 - Persönlich anpassen
 - Füge Deine Geschichte und lokale Bezüge hinzu
 - Per E-Mail oder Brief versenden – und bleibe dran für Antworten
 
-#### Folge uns auf Instagram
+### Folge uns auf Instagram
 
 Werde unser Follower und nimm an unseren Instagram-Aktionen Teil!
 
 **[Unser Instagram](https://www.instagram.com/zukunft.wohnen/)**
 
-::: instagram-posts
-:::
 
-
-#### Pressearbeit
+### Pressearbeit
 
 Hilf uns, Geschichten zu erzählen, die bewegen. Mach die Anliegen schwerstbehinderter Menschen sichtbar.
 
@@ -144,7 +144,7 @@ Eltern berichten in unserem [YouTube-Channel](https://www.youtube.com/@zukunftwo
 
 ### Satzung
 
-[Vereinsatzung downloaden (PDF)](/documents/pdf-sample.pdf)
+[Vereinsatzung downloaden (PDF)](/documents/Satzung-FINAL-mit-Unterschriften.pdf)
 
 ### Transparenz
 
@@ -190,7 +190,7 @@ Menschen mit schwersten Behinderungen brauchen Schutzräume, Reizarmut, kleine G
 :::footer
 Bleib informiert über unsere Arbeit. Abonniere unseren Newsletter oder folge uns auf Instagram.
 
-- [Newsletter abonnieren](#)
+- [Newsletter abonnieren](https://515aa0b4.sibforms.com/serve/MUIFAHfz4KR89rGjodUpzrHWpiM4w0G0B_RY7-0KN9GXx-TcEr50mJPCI7uWDm9qIEuvZYNuyr7ayGyhPdPzsK898Q9k_DekwPU9u2TzrWvbXnDGnRKi9_t6GYLYA2rKVVQrtaK4kegPkYhiquyxK97UHtKoXkHRHE-X-X0SCCAFUj2S9oVYHGLV84OJvqpBa4Rw-eS6CjGMukSM)
 - [Instagram folgen](https://www.instagram.com/zukunft.wohnen/)
 - [Spenden](#spenden)
 :::

@@ -24,7 +24,7 @@ Der Satzungszweck wird insbesondere durch Öffentlichkeitsarbeit sowie durch die
 ## Unsere Petition
 
 ::: navbar-chapter="Petition unterstützen" :::
-::: chapter-media="assets/img1.jpeg" :::
+::: chapter-media="assets/pexels-rdne-7403031.jpeg" :::
 
 Wir fordern:
 - Ausreichendes Angebot für Intensiv-Wohnplätze 
@@ -40,37 +40,37 @@ Vom Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwer
 
 Über 16.000 Menschen unterstützen unsere Forderungn mit ihrer Stimme. Das ist erst der Anfang.
 
-#### Bayerischer Landtag
+#### Dezember 2023: Start der [Petition](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)
 
-20.02.2025
+#### April 2024: Anhörung im Bayerischen Landtag
 
 Offizieller Sachverständigen-Status erreicht. Anhörung im Sozialausschuss Februar 2025
 
 **[Sachverständigen-Status (PDF)](/documents/pdf-sample.pdf)**
+
 **[Lese den Artikel über die Anhörung](https://www.bayerische-staatszeitung.de/staatszeitung/landtag/detailansicht-landtag/artikel/fehlende-pflegeplaetze-und-fachkraeftemangel-bedrohen-inklusion.html#topPosition)**
+
 **[Schau dir das Video über die Anhörung auf YouTube](https://www.youtube.com/watch?v=Rpb9llcHdHw&t=1s)**
 
-#### Bundestag
-<-Datum->
+#### April 2024: Einreichung Petition beim Deutschen Bundestag
 
 Petition Pet 3-20-11-2171-029585 offiziell zur Erwägung an die Bundesregierung überwiesen – ein parlamentarischer Meilenstein.
 
-**[Petitionstext (PDF)](/documents/pdf-sample.pdf)**
+**[Petitionstext (PDF)](/documents/20240412_Petition_Bundestag_Offizieller_Antrag.pdf)**
 
-#### Das Petitions-Votum: Ein parlamentarischer Auftrag
-<-Datum->
+#### April 2025: Das Petitions-Votum
 
 > „Die Petition wird der Bundesregierung zur Erwägung überwiesen... extreme Härten für Eltern... Schutzräume zwingend notwendig."
 
 Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsene mit schwersten Behinderungen ist real, die Härten für Familien sind extrem, und Handeln ist geboten. Jetzt muss die Politik Taten folgen lassen.
 
-**[Petitions-Votum des Bundestages (PDF)](/documents/pdf-sample.pdf)**
+**[Petitions-Votum des Bundestages (PDF)](/documents/20250412_Petition_165963_Abschlussbegruendung.pdf)**
 
 
 
 ## Werde aktiv: Wir brauchen Deine Hände, nicht nur Deine Unterschrift
 ::: navbar-chapter="Spenden und Helfen" :::
-::: chapter-media="assets/side-view-friends-meeting-outdoors.jpg" :::
+::: chapter-media="assets/hiki-app-dotm8dUpAxc-unsplash.jpeg" :::
 
 Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert sich nicht durch Appelle allein, sondern durch Menschen, die anpacken. Werde aktives Mitglied und hilf uns beim Networking, in der Pressearbeit oder beim direkten Kontakt zu Abgeordneten. Mit jede Stunde, die Du gibst, gibst Du schwerstbehinderte Menschen eine Perspektive. 
 
@@ -120,7 +120,7 @@ Hilf uns, Geschichten zu erzählen, die bewegen. Mach die Anliegen schwerstbehin
 
 ## Über uns: Eltern, die nicht aufgeben
 ::: navbar-chapter="Über uns" :::
-::: chapter-media="assets/img3.jpg" :::
+::: chapter-media="assets/nathan-anderson-FHiJWoBodrs-unsplash.jpeg" :::
 
 Wir, der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V. sind Eltern, die für ihre schwerstbehinderten Kinder kämpfen und dabei ein System verändern wollen. 
 
@@ -180,7 +180,7 @@ Wir sind kein Beratungsdienst und können keine Rechtsberatung oder Einzelfall-B
 
 ## Glossar: Wissen ist Macht
 ::: navbar-chapter="Glossar" :::
-::: chapter-media="assets/close-up-hand-moving-wheel.jpg" :::
+::: chapter-media="assets/i-am-special.jpg" :::
 
 Die Welt der Behindertenhilfe ist voll von Fachbegriffen. Hier erklären wir die wichtigsten Konzepte – damit Sie mitreden können und Ihre Rechte kennen.
 

@@ -476,6 +476,26 @@ a:hover {
   object-fit: contain;
 }
 
+@media (min-width: 68rem) {
+  .partner-card {
+    display: inline-flex;
+    width: min(100%, 12rem);
+    min-height: 4rem;
+    margin: 0 0.75rem 0.75rem 0;
+    vertical-align: top;
+  }
+
+  .partner-card__link {
+    padding: 0.45rem 0.6rem;
+  }
+
+  .partner-card__logo {
+    width: auto;
+    max-width: 100%;
+    max-height: 2.5rem;
+  }
+}
+
 .contact-intro,
 .contact-fallback {
   margin: 0 0 1rem;

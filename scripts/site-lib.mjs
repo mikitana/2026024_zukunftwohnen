@@ -258,7 +258,20 @@ function normalizeMarkdownChunk(markdown) {
 }
 
 function shouldOpenInNewTab(href) {
-  return Boolean(href && !href.startsWith("#"));
+  if (!href || href.startsWith("#")) {
+    return false;
+  }
+
+  if (/^(mailto:|tel:)/i.test(href)) {
+    return false;
+  }
+
+  if (/^(https?:)?\/\//i.test(href)) {
+    return true;
+  }
+
+  const normalizedHref = href.replace(/^\.\//, "").toLowerCase();
+  return normalizedHref.startsWith("documents/") || normalizedHref.startsWith("/documents/");
 }
 
 function configureRenderer(renderer) {

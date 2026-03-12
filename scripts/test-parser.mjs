@@ -44,6 +44,8 @@ test("buildSiteModel respects chapter IDs and marker stripping", async () => {
   assert.match(joinedSections, /class="video-preview__fallback"[^>]*href="https:\/\/www\.youtube\.com\/watch\?v=f5g_yrX6dzo"/i);
   assert.match(model.footerHtml, /href="#spenden"/);
   assert.doesNotMatch(model.footerHtml, /href="#spenden"[^>]*target="_blank"/);
+  assert.match(model.footerHtml, /href="impressum\.html"/);
+  assert.doesNotMatch(model.footerHtml, /href="impressum\.html"[^>]*target="_blank"/);
   assert.equal(model.sections[0].imagePath, "assets/close-up-disabled-friend-wheelchair.jpg");
   assert.equal(model.sections[1].imagePath, "assets/img1.jpeg");
   assert.equal(model.sections[2].imagePath, "assets/side-view-friends-meeting-outdoors.jpg");
@@ -153,5 +155,14 @@ test("footer parser tolerates missing closing tag", () => {
 
   assert.match(model.sections[0].html, /Erster Absatz/);
   assert.match(model.footerHtml, /href="documents\/newsletter\.pdf"[^>]*target="_blank"/);
+});
+
+test("buildSiteModel keeps internal html links in the same tab", () => {
+  const sample = `# Titel\n::: navbar-chapter-with-logo="Start" | logo="assets/logo.png" :::\nErster Absatz.\n\n:::footer\n- [Impressum](impressum.html)\n- [Extern](https://example.org)\n:::`;
+  const model = buildSiteModel(sample);
+
+  assert.match(model.footerHtml, /href="impressum\.html"/);
+  assert.doesNotMatch(model.footerHtml, /href="impressum\.html"[^>]*target="_blank"/);
+  assert.match(model.footerHtml, /href="https:\/\/example\.org"[^>]*target="_blank"/);
 });
 

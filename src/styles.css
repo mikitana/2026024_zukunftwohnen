@@ -447,6 +447,35 @@ a:hover {
   transform: translateY(-1px);
 }
 
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.partner-card {
+  display: flex;
+  border: 1px solid rgba(23, 54, 90, 0.12);
+  min-height: 8rem;
+}
+
+.partner-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 0.85rem 1rem;
+}
+
+.partner-card__logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .contact-intro,
 .contact-fallback {
   margin: 0 0 1rem;

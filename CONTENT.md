@@ -78,10 +78,14 @@ Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert s
 
 ### Spenden
 
-**Spendenkonto: Deutsche Bank**
-**IBAN: DE43 7007 0024 0090 9440 00**
+Unterstützen Sie unsere politische Arbeit.
+Als rein ehrenamtlicher Verein sind wir auf Spenden angewiesen, um Materialien für Kampagnen und Reisekosten zu Anhörungen zu finanzieren.
 
-Gemeinsam für eine bessere Zukunft für alle.
+**Bankverbindung für Spenden:**
+Empfänger: Zukunft Wohnen e.V.
+Bank: Deutsche Bank
+IBAN: DE43 7007 0024 0090 9440 00
+Spendenbescheinigungen stellen wir gerne ab einem Betrag von 200 € (darunter reicht der Kontoauszug für das Finanzamt) aus.
 
 ### Networking
 
@@ -95,6 +99,7 @@ Verbinde Dich mit anderen Eltern, Einrichtungen und Verbänden. Gemeinsam erreic
 Nutze unsere professionelle Vorlage, um Deine lokalen Abgeordneten auf die Situation schwerstbehinderter Menschen aufmerksam zu machen. Unser Template basiert auf dem offiziellen Bundestags-Beschluss und macht es einfach, konkrete Forderungen zu formulieren. Persönliche Briefe wirken – besonders, wenn viele sie schreiben.
 
 **[Download Anschreiben-Template (PDF)](/documents/20260312_Template_Abgeordnetenschreiben.odt)**
+
 - Fertig formuliertes Anschreiben mit rechtlichen Grundlagen
 - Persönlich anpassen
 - Füge Deine Geschichte und lokale Bezüge hinzu
@@ -145,6 +150,20 @@ Eltern berichten in unserem [YouTube-Channel](https://www.youtube.com/@zukunftwo
 ### Satzung
 
 [Vereinsatzung downloaden (PDF)](/documents/Satzung-FINAL-mit-Unterschriften.pdf)
+
+### Unsere Partner
+
+:::partner logo="assets/lvkm_logo.jpeg" | url="https://www.lvkm.de/"
+:::
+
+:::partner logo="assets/bvkm_logo.jpeg" | url="https://www.bvkm.de/"
+:::
+
+:::partner logo="assets/wir_pflegen_logo.jpg" | url="https://www.wir-pflegen.net/"
+:::
+
+:::partner logo="assets/familienratgeber_logo.jpeg" | url="https://www.familienratgeber.de/"
+:::
 
 ### Transparenz
 

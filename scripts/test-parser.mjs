@@ -105,6 +105,30 @@ Nach dem Formular.
   assert.match(model.sections[0].html, /Nach dem Formular\./);
 });
 
+test("buildSiteModel renders partner logos as external links inside chapter content", () => {
+  const model = buildSiteModel(`
+# Start
+::: navbar-chapter="Start" :::
+Vor dem Partner.
+
+:::partner- logo="assets/partner.png" | url="https://example.org"
+:::
+
+Nach dem Partner.
+  `.trim());
+
+  assert.match(model.sections[0].html, /<p>Vor dem Partner\.<\/p>[\s\S]*<div class="partner-card">[\s\S]*<a class="partner-card__link" href="https:\/\/example\.org" target="_blank" rel="noopener noreferrer">[\s\S]*<img class="partner-card__logo" src="assets\/partner\.png" alt="Partner-Logo" loading="lazy">[\s\S]*<\/a>[\s\S]*<\/div>[\s\S]*<p>Nach dem Partner\.<\/p>/i);
+});
+
+test("buildSiteModel rejects partner markers without required attributes", () => {
+  const sample = `# Start\n::: navbar-chapter="Start" :::\n:::partner logo="assets/partner.png"\n:::`;
+
+  assert.throws(
+    () => buildSiteModel(sample),
+    /Missing quoted partner URL in ::: partner url="\.\.\." ::: marker/i
+  );
+});
+
 test("buildSiteModel rejects non-YouTube video URLs", () => {
   const sample = `# Start\n::: navbar-chapter="Start" :::\n:::video="https://example.com/video.mp4"\n:::`;
 

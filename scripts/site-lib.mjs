@@ -10,6 +10,7 @@ const FOOTER_PLUGIN_NAME = "footer";
 const CONTACT_FORM_PLUGIN_NAME = "contact-form";
 const VIDEO_PLUGIN_NAME = "video";
 const VIDEO_CONTAINER_PLUGIN_NAME = "video-container";
+const PARTNER_PLUGIN_NAMES = new Set(["partner", "partner-"]);
 const HEADING_PATTERN = /^\s{0,3}#{1,6}\s+\S+/;
 
 function parsePluginOpen(line) {
@@ -117,6 +118,25 @@ function parseVideoMarker(plugin) {
     src: primaryValue,
     poster: attributes.poster || "",
     title: attributes.title || ""
+  };
+}
+
+function parsePartnerMarker(plugin) {
+  const { attributes } = parseQuotedDirectiveConfig(plugin.config);
+  const logoPath = attributes.logo || "";
+  const url = attributes.url || "";
+
+  if (!logoPath) {
+    throw new Error(`Missing quoted logo path in ::: ${plugin.name} logo="..." ::: marker.`);
+  }
+
+  if (!url) {
+    throw new Error(`Missing quoted partner URL in ::: ${plugin.name} url="..." ::: marker.`);
+  }
+
+  return {
+    logoPath,
+    url
   };
 }
 
@@ -427,6 +447,18 @@ function renderVideoMarkup(plugin) {
   ];
 }
 
+function renderPartnerMarkup(plugin) {
+  const { logoPath, url } = parsePartnerMarker(plugin);
+
+  return [
+    '<div class="partner-card">',
+    `<a class="partner-card__link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">`,
+    `<img class="partner-card__logo" src="${escapeHtml(logoPath)}" alt="Partner-Logo" loading="lazy">`,
+    '</a>',
+    '</div>'
+  ];
+}
+
 function renderSelfClosingPlugin(plugin) {
   if (plugin.name === CONTACT_FORM_PLUGIN_NAME) {
     return [
@@ -455,6 +487,10 @@ function renderPluginBlock(plugin, lines) {
       embedMarkup,
       "</div>"
     ];
+  }
+
+  if (PARTNER_PLUGIN_NAMES.has(plugin.name)) {
+    return renderPartnerMarkup(plugin);
   }
 
   return lines;

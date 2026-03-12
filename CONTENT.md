@@ -1,24 +1,24 @@
 # Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V.
-::: navbar-chapter-with-logo="Verein Zukunftwohnen" | logo="assets/ZW_Logo_transparent.png" :::
+::: navbar-chapter-with-logo="Verein Zukunft Wohnen" | logo="assets/ZW_Logo_transparent.png" :::
 ::: chapter-media="assets/close-up-disabled-friend-wheelchair.jpg" :::
 
 Vom Bayerischen Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwerster Behinderung eine Stimme. 
 
 Wenn junge Menschen mit komplexen Behinderungen erwachsen werden, endet oft jede Perspektive. Familien stehen allein da – ohne verlässliche Wohnformen, ohne Tagesstruktur, ohne Zukunft.
 
+Wir, der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V., sind Eltern, die für ihre schwerstbehinderten erwachsenen Kinder kämpfen und dabei ein System verändern wollen.
+
+Unser Verein setzt sich für die nachhaltige Schaffung, Förderung und Erhaltung von Wohnheimplätzen in der Besonderen Wohnform (ehemals vollstationäres Wohnen) für erwachsene Menschen mit schweren Behinderungen ein. Intensivwohngruppen sind ein Teil dieser Besonderen Wohnform.
+
+Wir treten für einen expliziten Rechtsanspruch auf einen Wohnheimplatz ein, der nicht an fehlenden Kapazitäten scheitern darf. Ebenso fordern wir ausreichende Förderstattplätze (einschließlich eines Rechtsanspruchs darauf) als verbindlichen Bestandteil der Tagesstruktur.
+
+Daneben machen wir die Lebenswirklichkeit pflegender Eltern von erwachsenen Menschen mit schweren Behinderungen sichtbar und setzen uns für die konsequente Umsetzung des in der UN Behindertenrechtskonvention garantierten Wahlrechts der Wohnform ein, einschließlich des Wohnens in besonderen Wohnheimen für Menschen mit Behinderung.
+
+Der Satzungszweck wird insbesondere durch Öffentlichkeitsarbeit sowie durch die Zusammenarbeit mit Institutionen, Einrichtungen und anderen Stellen verwirklicht, die sich im Sinne unseres Vereinszwecks betätigen.
+
 ## Nach der Schule kommt das Nichts
 
 18 Jahre lang erhalten Kinder und Jugendliche mit schwersten Behinderungen Förderung, Betreuung und Struktur. Dann endet die Schulpflicht – und damit oft jede Perspektive. Werkstätten und Förderstätten haben keine Kapazitäten. Wartelisten für Wohnheimplätze sind geschlossen oder erstrecken sich über Jahre. Der Rechtsanspruch auf ein selbstbestimmtes Leben in der Gemeinschaft (SGB IX) ist klar – doch die Versorgungslücke wächst. Nur noch wenige, große Träger bieten überhaupt diese lebenswichtige Intensivassistenz - und sind oftmals für die kommenden Jahre belegt. 
-
-
-# Stimmen betroffener Familien
-::: navbar-chapter="Unsere Stimmen" :::
-
-Eltern berichten in unserem [Youtube-Channel](https://www.youtube.com/@zukunftwohnen), was fehlende Wohnplätze und Tagesstruktur konkret bedeuten.
-
-::: video-container
-(<iframe width="560" height="315" src="https://www.youtube.com/embed/f5g_yrX6dzo?si=Xiq_vqe0wKVMHWzR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>)
-:::
 
 
 ## Unsere [Petition](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)
@@ -53,6 +53,7 @@ Petition Pet 3-20-11-2171-029585 offiziell zur Erwägung an die Bundesregierung 
 Offizieller Sachverständigen-Status erreicht. Anhörung im Sozialausschuss Februar 2025
 
 **[Sachverständigen-Status (PDF)](/documents/pdf-sample.pdf)**
+**[Lese den Artikel über die Anhörung](https://www.bayerische-staatszeitung.de/staatszeitung/landtag/detailansicht-landtag/artikel/fehlende-pflegeplaetze-und-fachkraeftemangel-bedrohen-inklusion.html#topPosition)**
 
 
 #### Das Petitions-Votum: Ein parlamentarischer Auftrag
@@ -124,6 +125,14 @@ Unser Verein hat die Vision, die Versorgungslücke im Hinblick auf Intensivbetre
 2.	Innovative Wohnformen für Intensivwohngruppen entstehen, die die Trägervielfalt erhöhen
 3.	Die Förder- und Werkstätten als zwingender Bestandteil der Tagesstruktur anerkannt und gewährleistet werden 
 
+### Unsere Stimmen
+
+Schau dir ein Video über uns an:
+
+:::video="https://www.youtube.com/watch?v=f5g_yrX6dzo" title="Zukunft Wohnen: Unsere Stimmen"
+:::
+
+Eltern berichten in unserem [YouTube-Channel](https://www.youtube.com/@zukunftwohnen), was fehlende Wohnplätze und Tagesstruktur konkret bedeuten.
 
 ### Was wir tun
 

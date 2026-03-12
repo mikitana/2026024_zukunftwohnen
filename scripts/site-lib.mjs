@@ -7,6 +7,7 @@ const NAVBAR_CHAPTER_PLUGIN_NAME = "navbar-chapter";
 const NAVBAR_CHAPTER_WITH_LOGO_PLUGIN_NAME = "navbar-chapter-with-logo";
 const CHAPTER_MEDIA_PLUGIN_NAME = "chapter-media";
 const FOOTER_PLUGIN_NAME = "footer";
+const VIDEO_PLUGIN_NAME = "video";
 const VIDEO_CONTAINER_PLUGIN_NAME = "video-container";
 const HEADING_PATTERN = /^\s{0,3}#{1,6}\s+\S+/;
 
@@ -102,6 +103,20 @@ function parseChapterMediaMarker(plugin) {
   }
 
   return primaryValue;
+}
+
+function parseVideoMarker(plugin) {
+  const { primaryValue, attributes } = parseQuotedDirectiveConfig(plugin.config);
+
+  if (!primaryValue) {
+    throw new Error(`Missing quoted YouTube URL in ::: ${VIDEO_PLUGIN_NAME}="..." ::: marker.`);
+  }
+
+  return {
+    src: primaryValue,
+    poster: attributes.poster || "",
+    title: attributes.title || ""
+  };
 }
 
 function escapeHtml(value) {
@@ -259,6 +274,24 @@ function normalizeLocalDocumentLinks(html) {
   return html.replace(/href=(['"])\/documents\//gi, "href=$1documents/");
 }
 
+function inferVideoMimeType(src) {
+  const normalizedSrc = src.split(/[?#]/, 1)[0].toLowerCase();
+
+  if (normalizedSrc.endsWith(".mp4")) {
+    return "video/mp4";
+  }
+
+  if (normalizedSrc.endsWith(".webm")) {
+    return "video/webm";
+  }
+
+  if (normalizedSrc.endsWith(".ogv") || normalizedSrc.endsWith(".ogg")) {
+    return "video/ogg";
+  }
+
+  return "";
+}
+
 function renderMarkdownToHtml(renderer, markdown) {
   return normalizeLocalDocumentLinks(renderer.render(markdown));
 }
@@ -273,8 +306,35 @@ function extractYouTubeVideoId(src) {
     return "";
   }
 
-  const match = src.match(/youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{11})/i);
-  return match?.[1] || "";
+  const trimmedSrc = src.trim();
+  const embedMatch = trimmedSrc.match(/youtube(?:-nocookie)?\.com\/embed\/([A-Za-z0-9_-]{11})/i);
+  if (embedMatch?.[1]) {
+    return embedMatch[1];
+  }
+
+  try {
+    const url = new URL(trimmedSrc);
+    const hostname = url.hostname.replace(/^www\./i, "").toLowerCase();
+
+    if (hostname === "youtu.be") {
+      const shortId = url.pathname.replace(/^\//, "").split("/")[0];
+      return /^[A-Za-z0-9_-]{11}$/.test(shortId) ? shortId : "";
+    }
+
+    if (!["youtube.com", "m.youtube.com", "youtube-nocookie.com"].includes(hostname)) {
+      return "";
+    }
+
+    if (url.pathname === "/watch") {
+      const watchId = url.searchParams.get("v") || "";
+      return /^[A-Za-z0-9_-]{11}$/.test(watchId) ? watchId : "";
+    }
+
+    const pathMatch = url.pathname.match(/^\/(?:embed|shorts)\/([A-Za-z0-9_-]{11})(?:\/|$)/i);
+    return pathMatch?.[1] || "";
+  } catch {
+    return "";
+  }
 }
 
 function normalizeYouTubeIframe(iframeMarkup) {
@@ -288,6 +348,48 @@ function normalizeYouTubeIframe(iframeMarkup) {
   const canonicalSrc = `https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`;
 
   return `<iframe class="video-embed video-embed--youtube" width="560" height="315" src="${canonicalSrc}" title="${escapeHtml(title)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen data-video-provider="youtube" data-video-id="${videoId}"></iframe>`;
+}
+
+function buildYouTubeWatchUrl(videoId) {
+  return `https://www.youtube.com/watch?v=${videoId}`;
+}
+
+function buildYouTubeThumbnailUrl(videoId) {
+  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+}
+
+function renderYouTubeEmbed(src, title) {
+  const iframeMarkup = `<iframe src="${escapeHtml(src)}" title="${escapeHtml(title || "YouTube video player")}"></iframe>`;
+  const normalizedEmbed = normalizeYouTubeIframe(iframeMarkup);
+
+  if (normalizedEmbed === iframeMarkup) {
+    throw new Error(`Invalid YouTube URL in ::: ${VIDEO_PLUGIN_NAME}="..." ::: marker: ${src}`);
+  }
+
+  return normalizedEmbed;
+}
+
+function renderYouTubePreviewCard(src, title) {
+  const videoId = extractYouTubeVideoId(src);
+  if (!videoId) {
+    throw new Error(`Invalid YouTube URL in ::: ${VIDEO_PLUGIN_NAME}="..." ::: marker: ${src}`);
+  }
+
+  const videoTitle = title || "YouTube-Video";
+  const embedSrc = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0`;
+  const watchUrl = buildYouTubeWatchUrl(videoId);
+  const thumbnailUrl = buildYouTubeThumbnailUrl(videoId);
+
+  return [
+    `<div class="video-preview" data-youtube-preview data-video-id="${videoId}" data-video-title="${escapeHtml(videoTitle)}" data-video-src="${escapeHtml(embedSrc)}" data-video-watch-url="${escapeHtml(watchUrl)}">`,
+    `<img class="video-preview__image" src="${escapeHtml(thumbnailUrl)}" alt="Vorschaubild: ${escapeHtml(videoTitle)}" loading="lazy">`,
+    `<button class="video-preview__button" type="button" data-video-activate aria-label="${escapeHtml(videoTitle)} abspielen">`,
+    '<span class="video-preview__play" aria-hidden="true"></span>',
+    '<span class="video-preview__label">Video abspielen</span>',
+    '</button>',
+    `<a class="video-preview__fallback" href="${escapeHtml(watchUrl)}" target="_blank" rel="noopener noreferrer">Auf YouTube öffnen</a>`,
+    '</div>'
+  ].join("");
 }
 
 function normalizeIframeMarkup(markup) {
@@ -313,8 +415,23 @@ function normalizeVideoContainerMarkup(lines) {
   return normalizeIframeMarkup(rawMarkup);
 }
 
-function renderPluginBlock(pluginName, lines) {
-  if (pluginName === VIDEO_CONTAINER_PLUGIN_NAME) {
+function renderVideoMarkup(plugin) {
+  const { src, title } = parseVideoMarker(plugin);
+  const previewMarkup = renderYouTubePreviewCard(src, title);
+
+  return [
+    '<div class="video-container">',
+    previewMarkup,
+    "</div>"
+  ];
+}
+
+function renderPluginBlock(plugin, lines) {
+  if (plugin.name === VIDEO_PLUGIN_NAME) {
+    return renderVideoMarkup(plugin);
+  }
+
+  if (plugin.name === VIDEO_CONTAINER_PLUGIN_NAME) {
     const embedMarkup = normalizeVideoContainerMarkup(lines);
     if (!embedMarkup) {
       return [];
@@ -341,7 +458,7 @@ function buildChapterMarkdown(lines, start, end) {
       return;
     }
 
-    if (inPluginBlock === FOOTER_PLUGIN_NAME) {
+    if (inPluginBlock.name === FOOTER_PLUGIN_NAME) {
       footerLines.push(...pluginLines);
     } else {
       filtered.push(...renderPluginBlock(inPluginBlock, pluginLines));
@@ -362,7 +479,7 @@ function buildChapterMarkdown(lines, start, end) {
         continue;
       }
 
-      inPluginBlock = plugin.name;
+      inPluginBlock = plugin;
       continue;
     }
 
@@ -457,11 +574,12 @@ function renderSections(sections) {
     .map((section, index) => {
       const introClass = index === 0 ? " chapter--intro" : "";
       const flipClass = index % 2 === 1 ? " chapter--flip" : "";
+      const fullClass = section.imagePath ? "" : " chapter--full";
       const image = section.imagePath
         ? `<figure class="chapter-media"><img src="${section.imagePath}" alt="Motiv zur Rubrik ${escapeHtml(section.label)}" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}></figure>`
         : "";
 
-      return `<section class="chapter${introClass}${flipClass}" id="${section.id}" data-section data-slug="${section.slug}">
+      return `<section class="chapter${introClass}${flipClass}${fullClass}" id="${section.id}" data-section data-slug="${section.slug}">
 ${image}
 <div class="chapter-content">
 ${section.html}

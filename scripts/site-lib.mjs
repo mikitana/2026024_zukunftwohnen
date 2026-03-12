@@ -514,6 +514,27 @@ function buildChapterMarkdown(lines, start, end) {
   const footerLines = [];
   let inPluginBlock = null;
   let pluginLines = [];
+  let hasOpenPartnerGroup = false;
+
+  function openPartnerGroup() {
+    if (hasOpenPartnerGroup) {
+      return;
+    }
+
+    filtered.push("");
+    filtered.push('<div class="partner-grid">');
+    hasOpenPartnerGroup = true;
+  }
+
+  function closePartnerGroup() {
+    if (!hasOpenPartnerGroup) {
+      return;
+    }
+
+    filtered.push('</div>');
+    filtered.push("");
+    hasOpenPartnerGroup = false;
+  }
 
   function flushPluginBlock() {
     if (!inPluginBlock) {
@@ -521,8 +542,13 @@ function buildChapterMarkdown(lines, start, end) {
     }
 
     if (inPluginBlock.name === FOOTER_PLUGIN_NAME) {
+      closePartnerGroup();
       footerLines.push(...pluginLines);
+    } else if (PARTNER_PLUGIN_NAMES.has(inPluginBlock.name)) {
+      openPartnerGroup();
+      filtered.push(...renderPluginBlock(inPluginBlock, pluginLines));
     } else {
+      closePartnerGroup();
       filtered.push(...renderPluginBlock(inPluginBlock, pluginLines));
     }
 
@@ -536,6 +562,10 @@ function buildChapterMarkdown(lines, start, end) {
     const plugin = parsePluginOpen(line);
     if (plugin) {
       flushPluginBlock();
+
+      if (!PARTNER_PLUGIN_NAMES.has(plugin.name)) {
+        closePartnerGroup();
+      }
 
       if (plugin.selfClosing) {
         filtered.push(...renderSelfClosingPlugin(plugin));
@@ -554,11 +584,16 @@ function buildChapterMarkdown(lines, start, end) {
     if (inPluginBlock) {
       pluginLines.push(line);
     } else {
+      if (line.trim()) {
+        closePartnerGroup();
+      }
+
       filtered.push(line);
     }
   }
 
   flushPluginBlock();
+  closePartnerGroup();
 
   let bodyMarkdown = normalizeMarkdownChunk(filtered.join("\n"));
   bodyMarkdown = bodyMarkdown.replace(/\n-{3,}\s*$/g, "").trimEnd();

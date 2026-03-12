@@ -42,15 +42,15 @@ test("buildSiteModel respects chapter IDs and marker stripping", async () => {
   assert.match(joinedSections, /data-video-src="https:\/\/www\.youtube-nocookie\.com\/embed\/f5g_yrX6dzo\?autoplay=1&amp;playsinline=1&amp;rel=0"/i);
   assert.match(joinedSections, /class="video-preview__image"[^>]*src="https:\/\/i\.ytimg\.com\/vi\/f5g_yrX6dzo\/hqdefault\.jpg"/i);
   assert.match(joinedSections, /class="video-preview__fallback"[^>]*href="https:\/\/www\.youtube\.com\/watch\?v=f5g_yrX6dzo"/i);
-  assert.match(model.footerHtml, /href="#spenden"/);
-  assert.doesNotMatch(model.footerHtml, /href="#spenden"[^>]*target="_blank"/);
+  assert.match(model.footerHtml, /href="#chapter-spenden-und-helfen"/);
+  assert.doesNotMatch(model.footerHtml, /href="#chapter-spenden-und-helfen"[^>]*target="_blank"/);
   assert.match(model.footerHtml, /href="impressum\.html"/);
   assert.doesNotMatch(model.footerHtml, /href="impressum\.html"[^>]*target="_blank"/);
   assert.equal(model.sections[0].imagePath, "assets/close-up-disabled-friend-wheelchair.jpg");
-  assert.equal(model.sections[1].imagePath, "assets/img1.jpeg");
-  assert.equal(model.sections[2].imagePath, "assets/side-view-friends-meeting-outdoors.jpg");
-  assert.equal(model.sections[3].imagePath, "assets/img3.jpg");
-  assert.equal(model.sections[4].imagePath, "assets/close-up-hand-moving-wheel.jpg");
+  assert.equal(model.sections[1].imagePath, "assets/pexels-rdne-7403031.jpeg");
+  assert.equal(model.sections[2].imagePath, "assets/hiki-app-dotm8dUpAxc-unsplash.jpeg");
+  assert.equal(model.sections[3].imagePath, "assets/nathan-anderson-FHiJWoBodrs-unsplash.jpeg");
+  assert.equal(model.sections[4].imagePath, "assets/i-am-special.jpg");
 });
 
 test("buildSiteModel parses explicit chapter markers and separates media metadata", () => {
@@ -119,7 +119,22 @@ Vor dem Partner.
 Nach dem Partner.
   `.trim());
 
-  assert.match(model.sections[0].html, /<p>Vor dem Partner\.<\/p>[\s\S]*<div class="partner-card">[\s\S]*<a class="partner-card__link" href="https:\/\/example\.org" target="_blank" rel="noopener noreferrer">[\s\S]*<img class="partner-card__logo" src="assets\/partner\.png" alt="Partner-Logo" loading="lazy">[\s\S]*<\/a>[\s\S]*<\/div>[\s\S]*<p>Nach dem Partner\.<\/p>/i);
+  assert.match(model.sections[0].html, /<p>Vor dem Partner\.<\/p>[\s\S]*<div class="partner-grid">[\s\S]*<div class="partner-card">[\s\S]*<a class="partner-card__link" href="https:\/\/example\.org" target="_blank" rel="noopener noreferrer">[\s\S]*<img class="partner-card__logo" src="assets\/partner\.png" alt="Partner-Logo" loading="lazy">[\s\S]*<\/a>[\s\S]*<\/div>[\s\S]*<\/div>[\s\S]*<p>Nach dem Partner\.<\/p>/i);
+});
+
+test("buildSiteModel groups consecutive partner markers into one partner grid", () => {
+  const model = buildSiteModel(`
+# Start
+::: navbar-chapter="Start" :::
+:::partner logo="assets/one.png" | url="https://example.org/one"
+:::
+
+:::partner logo="assets/two.png" | url="https://example.org/two"
+:::
+  `.trim());
+
+  assert.match(model.sections[0].html, /<div class="partner-grid">[\s\S]*assets\/one\.png[\s\S]*assets\/two\.png[\s\S]*<\/div>/i);
+  assert.equal((model.sections[0].html.match(/class="partner-grid"/g) || []).length, 1);
 });
 
 test("buildSiteModel rejects partner markers without required attributes", () => {

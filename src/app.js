@@ -3,9 +3,80 @@ const sections = Array.from(document.querySelectorAll("[data-section]"));
 const logoLink = document.querySelector("[data-logo-link]");
 const siteNav = document.querySelector(".site-nav");
 const navToggle = document.querySelector("[data-nav-toggle]");
+const contactForm = document.querySelector("[data-contact-form]");
+const contactMailLink = document.querySelector("[data-contact-mail-link]");
 const mobileNavQuery = window.matchMedia("(max-width: 42rem)");
 
+const contactRecipient = ["kontakt", "zukunftwohnen.info"].join("@");
+
 let closeNavigationMenu = () => {};
+
+function encodeFormData(formData) {
+  return new URLSearchParams(Array.from(formData.entries()).map(([key, value]) => [key, String(value)])).toString();
+}
+
+if (contactMailLink instanceof HTMLAnchorElement) {
+  contactMailLink.href = `mailto:${contactRecipient}`;
+}
+
+if (contactForm instanceof HTMLFormElement) {
+  const submitButton = contactForm.querySelector(".contact-form__submit");
+  const statusElement = contactForm.querySelector("[data-contact-form-status]");
+
+  const setStatus = (message, tone = "") => {
+    if (!(statusElement instanceof HTMLElement)) {
+      return;
+    }
+
+    statusElement.textContent = message;
+    statusElement.classList.toggle("is-error", tone === "error");
+    statusElement.classList.toggle("is-success", tone === "success");
+  };
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!contactForm.reportValidity()) {
+      setStatus("Bitte pruefe die markierten Felder.", "error");
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const honeypot = String(formData.get("bot-field") || "").trim();
+
+    if (honeypot) {
+      setStatus("Die Nachricht konnte nicht vorbereitet werden.", "error");
+      return;
+    }
+
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+    }
+
+    setStatus("Nachricht wird gesendet...");
+
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: encodeFormData(formData)
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Unexpected response: ${response.status}`);
+      }
+
+      contactForm.reset();
+      setStatus("Vielen Dank. Deine Nachricht wurde gesendet.", "success");
+    }).catch(() => {
+      setStatus("Die Nachricht konnte nicht gesendet werden. Bitte nutze den direkten E-Mail-Link darunter.", "error");
+    }).finally(() => {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+      }
+    });
+  });
+}
 
 if (siteNav && navToggle) {
   const setNavigationMenuState = (isOpen) => {
@@ -59,6 +130,53 @@ if (siteNav && navToggle) {
 }
 
 document.documentElement.classList.add("js-ready");
+
+const youtubePreviews = Array.from(document.querySelectorAll("[data-youtube-preview]"));
+
+function shouldInlineYouTubeEmbed() {
+  return window.location.protocol === "http:" || window.location.protocol === "https:";
+}
+
+function createYouTubeIframe(preview) {
+  const src = preview.dataset.videoSrc || "";
+  const title = preview.dataset.videoTitle || "YouTube video player";
+  const videoId = preview.dataset.videoId || "";
+  const iframe = document.createElement("iframe");
+
+  iframe.className = "video-embed video-embed--youtube";
+  iframe.width = "560";
+  iframe.height = "315";
+  iframe.src = src;
+  iframe.title = title;
+  iframe.setAttribute("frameborder", "0");
+  iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+  iframe.setAttribute("allowfullscreen", "");
+  iframe.dataset.videoProvider = "youtube";
+  iframe.dataset.videoId = videoId;
+
+  return iframe;
+}
+
+for (const preview of youtubePreviews) {
+  const activateButton = preview.querySelector("[data-video-activate]");
+  if (!(activateButton instanceof HTMLButtonElement)) {
+    continue;
+  }
+
+  activateButton.addEventListener("click", () => {
+    const watchUrl = preview.dataset.videoWatchUrl || "";
+
+    if (!shouldInlineYouTubeEmbed()) {
+      if (watchUrl) {
+        window.open(watchUrl, "_blank", "noopener,noreferrer");
+      }
+      return;
+    }
+
+    const iframe = createYouTubeIframe(preview);
+    preview.replaceWith(iframe);
+  });
+}
 
 if (navLinks.length && sections.length) {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

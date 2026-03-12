@@ -38,6 +38,78 @@ function normalizeWhitespace(value) {
   return value.replace(/\s+/g, " ").trim();
 }
 
+function parseNavbarConfig(config) {
+  if (!config) {
+    return {
+      hasLogo: false,
+      label: "",
+      imagePath: ""
+    };
+  }
+
+  if (config.includes("|")) {
+    const parts = config
+      .split("|")
+      .map((part) => normalizeWhitespace(part))
+      .filter(Boolean);
+
+    let hasLogo = false;
+    let label = "";
+    let imagePath = "";
+
+    for (const part of parts) {
+      if (part.toLowerCase() === "logo") {
+        hasLogo = true;
+        continue;
+      }
+
+      const separatorIndex = part.indexOf("=");
+      if (separatorIndex !== -1) {
+        const key = normalizeWhitespace(part.slice(0, separatorIndex)).toLowerCase();
+        const value = normalizeWhitespace(part.slice(separatorIndex + 1));
+
+        if (key === "image") {
+          imagePath = value;
+        }
+
+        continue;
+      }
+
+      if (!label) {
+        label = part;
+      }
+    }
+
+    return {
+      hasLogo,
+      label,
+      imagePath
+    };
+  }
+
+  const tokens = config
+    .split(",")
+    .map((token) => normalizeWhitespace(token))
+    .filter(Boolean);
+
+  let hasLogo = false;
+  const labels = [];
+
+  for (const token of tokens) {
+    if (token.toLowerCase() === "logo") {
+      hasLogo = true;
+    } else {
+      labels.push(token);
+    }
+  }
+
+  return {
+    hasLogo,
+    label: labels[0] || "",
+    imagePath: ""
+  };
+}
+
 function escapeHtml(value) {
   return value
     .replace(/&/g, "&amp;")
@@ -71,32 +143,18 @@ function parseMarkers(lines) {
       continue;
     }
 
-    const config = plugin.config;
-    const tokens = config
-      .split(",")
-      .map((token) => normalizeWhitespace(token))
-      .filter(Boolean);
-
-    let hasLogo = false;
-    const labels = [];
-
-    for (const token of tokens) {
-      if (token.toLowerCase() === "logo") {
-        hasLogo = true;
-      } else {
-        labels.push(token);
-      }
-    }
+    const { hasLogo, label, imagePath } = parseNavbarConfig(plugin.config);
 
     // Skip navbar plugins without labels (empty navbar markers)
-    if (!labels.length) {
+    if (!label) {
       continue;
     }
 
     markers.push({
       lineIndex,
-      label: labels[0],
-      hasLogo
+      label,
+      hasLogo,
+      imagePath
     });
   }
 
@@ -346,7 +404,7 @@ export function buildSiteModel(rawMarkdown, options = {}) {
 
     sections.push({
       ...navItems[index],
-      imagePath: IMAGE_BY_SLUG[navItems[index].slug] || "",
+      imagePath: markers[index].imagePath || IMAGE_BY_SLUG[navItems[index].slug] || "",
       html
     });
   }

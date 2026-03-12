@@ -43,6 +43,23 @@ test("buildSiteModel respects chapter IDs and marker stripping", async () => {
   assert.doesNotMatch(joinedSections, /<p>\s*\(<iframe/i);
   assert.match(model.footerHtml, /href="#spenden"/);
   assert.doesNotMatch(model.footerHtml, /href="#spenden"[^>]*target="_blank"/);
+  assert.equal(model.sections[0].imagePath, "assets/close-up-disabled-friend-wheelchair.jpg");
+  assert.equal(model.sections[2].imagePath, "assets/img1.jpeg");
+  assert.equal(model.sections[3].imagePath, "assets/side-view-friends-meeting-outdoors.jpg");
+  assert.equal(model.sections[4].imagePath, "assets/img3.jpg");
+  assert.equal(model.sections[5].imagePath, "assets/close-up-hand-moving-wheel.jpg");
+});
+
+test("buildSiteModel parses pipe-based navbar metadata and keeps legacy markers working", () => {
+  const sample = `# Start\n::: navbar: logo | Start | image=assets/start.jpg\n:::\nEinleitung.\n\n# Kapitel\n::: navbar: Kapitel | image=assets/kapitel.jpg\n:::\nText.\n\n# Legacy\n::: navbar: Legacy Kapitel\n:::\nMehr Text.`;
+  const model = buildSiteModel(sample);
+
+  assert.equal(model.navItems.length, 3);
+  assert.equal(model.firstSectionId, "chapter-start");
+  assert.equal(model.hasLogoAction, true);
+  assert.equal(model.sections[0].imagePath, "assets/start.jpg");
+  assert.equal(model.sections[1].imagePath, "assets/kapitel.jpg");
+  assert.equal(model.sections[2].imagePath, "");
 });
 
 test("footer parser tolerates missing closing tag", () => {

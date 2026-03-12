@@ -1,9 +1,6 @@
-::: navbar
-:::
-
 # Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V.
-::: navbar: logo | Verein Zukunftwohnen | image=assets/close-up-disabled-friend-wheelchair.jpg
-:::
+::: navbar-chapter-with-logo="Verein Zukunftwohnen" | logo="assets/ZW_Logo_transparent.png" :::
+::: chapter-media="assets/close-up-disabled-friend-wheelchair.jpg" :::
 
 Vom Bayerischen Landtag bis zum Deutschen Bundestag: Wir geben jungen Erwachsenen mit schwerster Behinderung eine Stimme. 
 
@@ -15,8 +12,7 @@ Wenn junge Menschen mit komplexen Behinderungen erwachsen werden, endet oft jede
 
 
 # Stimmen betroffener Familien
-::: navbar: Unsere Stimmen
-:::
+::: navbar-chapter="Unsere Stimmen" :::
 
 Eltern berichten in unserem [Youtube-Channel](https://www.youtube.com/@zukunftwohnen), was fehlende Wohnplätze und Tagesstruktur konkret bedeuten.
 
@@ -27,8 +23,8 @@ Eltern berichten in unserem [Youtube-Channel](https://www.youtube.com/@zukunftwo
 
 ## Unsere [Petition](https://www.change.org/p/mehr-tagesf%C3%B6rderst%C3%A4tten-und-wohngruppen-f%C3%BCr-junge-erwachsene-mit-behinderung)
 
-::: navbar: Petition unterstützen | image=assets/img1.jpeg
-:::
+::: navbar-chapter="Petition unterstützen" :::
+::: chapter-media="assets/img1.jpeg" :::
 
 Wir fordern:
 - Ausreichendes Angebot für Intensiv-Wohnplätze 
@@ -70,8 +66,8 @@ Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsen
 
 
 ## Werde aktiv: Wir brauchen Deine Hände, nicht nur Deine Unterschrift
-::: navbar: Spenden und Helfen | image=assets/side-view-friends-meeting-outdoors.jpg
-:::
+::: navbar-chapter="Spenden und Helfen" :::
+::: chapter-media="assets/side-view-friends-meeting-outdoors.jpg" :::
 
 Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert sich nicht durch Appelle allein, sondern durch Menschen, die anpacken. Werde aktives Mitglied und hilf uns beim Networking, in der Pressearbeit oder beim direkten Kontakt zu Abgeordneten. Mit jede Stunde, die Du gibst, gibst Du schwerstbehinderte Menschen eine Perspektive. 
 
@@ -117,8 +113,8 @@ Hilf uns, Geschichten zu erzählen, die bewegen. Mach die Anliegen schwerstbehin
 
 
 ## Über uns: Eltern, die nicht aufgeben
-::: navbar: Über uns | image=assets/img3.jpg
-:::
+::: navbar-chapter="Über uns" :::
+::: chapter-media="assets/img3.jpg" :::
 
 Wir, der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V. sind Eltern, die für ihre schwerstbehinderten Kinder kämpfen und dabei ein System verändern wollen. 
 
@@ -157,8 +153,8 @@ Wir sind kein Beratungsdienst und können keine Rechtsberatung oder Einzelfall-B
 
 
 ## Glossar: Wissen ist Macht
-::: navbar: Glossar | image=assets/close-up-hand-moving-wheel.jpg
-:::
+::: navbar-chapter="Glossar" :::
+::: chapter-media="assets/close-up-hand-moving-wheel.jpg" :::
 
 Die Welt der Behindertenhilfe ist voll von Fachbegriffen. Hier erklären wir die wichtigsten Konzepte – damit Sie mitreden können und Ihre Rechte kennen.
 

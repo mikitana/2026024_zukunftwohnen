@@ -1,27 +1,35 @@
 import MarkdownIt from "markdown-it";
 
-const PLUGIN_OPEN_PATTERN = /^\s*:::\s*([\w-]+)(?::\s*(.*?))?\s*$/i;
+const PLUGIN_OPEN_PATTERN = /^\s*:::\s*([\w-]+)(.*)$/i;
 const PLUGIN_CLOSE_PATTERN = /^\s*:::\s*$/;
-const NAVBAR_PLUGIN_NAME = "navbar";
+const LEGACY_NAVBAR_PLUGIN_NAME = "navbar";
+const NAVBAR_CHAPTER_PLUGIN_NAME = "navbar-chapter";
+const NAVBAR_CHAPTER_WITH_LOGO_PLUGIN_NAME = "navbar-chapter-with-logo";
+const CHAPTER_MEDIA_PLUGIN_NAME = "chapter-media";
 const FOOTER_PLUGIN_NAME = "footer";
 const VIDEO_CONTAINER_PLUGIN_NAME = "video-container";
 const HEADING_PATTERN = /^\s{0,3}#{1,6}\s+\S+/;
 
-export const IMAGE_BY_SLUG = {
-  "zukunftwohnen": "assets/close-up-disabled-friend-wheelchair.jpg",
-  "verein-zukunftwohnen": "assets/close-up-disabled-friend-wheelchair.jpg",
-  "petition-unterstuetzen": "assets/img1.jpeg",
-  "spenden-und-helfen": "assets/side-view-friends-meeting-outdoors.jpg",
-  "glossar": "assets/close-up-hand-moving-wheel.jpg",
-  "ueber-uns": "assets/img3.jpg"
-};
-
 function parsePluginOpen(line) {
   const match = line.match(PLUGIN_OPEN_PATTERN);
   if (!match) return null;
+
+  let config = (match[2] || "").trim();
+  let selfClosing = false;
+
+  if (config.endsWith(":::")) {
+    selfClosing = true;
+    config = config.slice(0, -3).trim();
+  }
+
+  if (config.startsWith(":")) {
+    config = config.slice(1).trim();
+  }
+
   return {
     name: match[1].toLowerCase(),
-    config: (match[2] || "").trim()
+    config,
+    selfClosing
   };
 }
 
@@ -31,83 +39,69 @@ function isPluginClose(line) {
 
 function isNavbarMarkerLine(line) {
   const plugin = parsePluginOpen(line);
-  return plugin?.name === NAVBAR_PLUGIN_NAME;
+  return plugin?.name === NAVBAR_CHAPTER_PLUGIN_NAME
+    || plugin?.name === NAVBAR_CHAPTER_WITH_LOGO_PLUGIN_NAME;
 }
 
 function normalizeWhitespace(value) {
   return value.replace(/\s+/g, " ").trim();
 }
 
-function parseNavbarConfig(config) {
-  if (!config) {
-    return {
-      hasLogo: false,
-      label: "",
-      imagePath: ""
-    };
-  }
+function parseQuotedDirectiveConfig(config) {
+  let remaining = (config || "").trim();
+  let primaryValue = "";
 
-  if (config.includes("|")) {
-    const parts = config
-      .split("|")
-      .map((part) => normalizeWhitespace(part))
-      .filter(Boolean);
-
-    let hasLogo = false;
-    let label = "";
-    let imagePath = "";
-
-    for (const part of parts) {
-      if (part.toLowerCase() === "logo") {
-        hasLogo = true;
-        continue;
-      }
-
-      const separatorIndex = part.indexOf("=");
-      if (separatorIndex !== -1) {
-        const key = normalizeWhitespace(part.slice(0, separatorIndex)).toLowerCase();
-        const value = normalizeWhitespace(part.slice(separatorIndex + 1));
-
-        if (key === "image") {
-          imagePath = value;
-        }
-
-        continue;
-      }
-
-      if (!label) {
-        label = part;
-      }
+  if (remaining.startsWith("=")) {
+    const primaryMatch = remaining.match(/^=\s*(["'])(.*?)\1/);
+    if (!primaryMatch) {
+      throw new Error(`Invalid directive config: ${config}`);
     }
 
-    return {
-      hasLogo,
-      label,
-      imagePath
-    };
+    primaryValue = normalizeWhitespace(primaryMatch[2]);
+    remaining = remaining.slice(primaryMatch[0].length).trim();
   }
 
-  const tokens = config
-    .split(",")
-    .map((token) => normalizeWhitespace(token))
-    .filter(Boolean);
+  const attributes = {};
+  const attributePattern = /([\w-]+)\s*=\s*(["'])(.*?)\2/g;
 
-  let hasLogo = false;
-  const labels = [];
-
-  for (const token of tokens) {
-    if (token.toLowerCase() === "logo") {
-      hasLogo = true;
-    } else {
-      labels.push(token);
-    }
+  for (const match of remaining.matchAll(attributePattern)) {
+    attributes[match[1].toLowerCase()] = normalizeWhitespace(match[3]);
   }
 
   return {
-    hasLogo,
-    label: labels[0] || "",
-    imagePath: ""
+    primaryValue,
+    attributes
   };
+}
+
+function parseNavbarMarker(plugin) {
+  const { primaryValue, attributes } = parseQuotedDirectiveConfig(plugin.config);
+
+  if (!primaryValue) {
+    throw new Error(`Missing quoted chapter label in ::: ${plugin.name}="..." ::: marker.`);
+  }
+
+  if (attributes.image) {
+    throw new Error(`Image paths are no longer allowed in ::: ${plugin.name} ::: markers. Use ::: ${CHAPTER_MEDIA_PLUGIN_NAME}="..." ::: inside the chapter instead.`);
+  }
+
+  const hasLogo = plugin.name === NAVBAR_CHAPTER_WITH_LOGO_PLUGIN_NAME;
+
+  return {
+    hasLogo,
+    label: primaryValue,
+    logoPath: hasLogo ? attributes.logo || "" : ""
+  };
+}
+
+function parseChapterMediaMarker(plugin) {
+  const { primaryValue } = parseQuotedDirectiveConfig(plugin.config);
+
+  if (!primaryValue) {
+    throw new Error(`Missing quoted image path in ::: ${CHAPTER_MEDIA_PLUGIN_NAME}="..." ::: marker.`);
+  }
+
+  return primaryValue;
 }
 
 function escapeHtml(value) {
@@ -138,31 +132,53 @@ function parseMarkers(lines) {
   for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
     const line = lines[lineIndex];
     const plugin = parsePluginOpen(line);
-    
-    if (!plugin || plugin.name !== NAVBAR_PLUGIN_NAME) {
+
+    if (!plugin) {
       continue;
     }
 
-    const { hasLogo, label, imagePath } = parseNavbarConfig(plugin.config);
+    if (plugin.name === LEGACY_NAVBAR_PLUGIN_NAME) {
+      throw new Error(`Legacy ::: ${LEGACY_NAVBAR_PLUGIN_NAME}: ... ::: markers are no longer supported. Use ::: ${NAVBAR_CHAPTER_PLUGIN_NAME}="..." ::: or ::: ${NAVBAR_CHAPTER_WITH_LOGO_PLUGIN_NAME}="..." | logo="..." :::.`);
+    }
 
-    // Skip navbar plugins without labels (empty navbar markers)
-    if (!label) {
+    if (!isNavbarMarkerLine(line)) {
       continue;
     }
+
+    const { hasLogo, label, logoPath } = parseNavbarMarker(plugin);
 
     markers.push({
       lineIndex,
       label,
       hasLogo,
-      imagePath
+      logoPath
     });
   }
 
   if (!markers.length) {
-    throw new Error("No ::: navbar plugins with labels were found in content.md.");
+    throw new Error(`No ::: ${NAVBAR_CHAPTER_PLUGIN_NAME}="..." ::: markers were found in content.md.`);
   }
 
   return markers;
+}
+
+function findChapterMediaPath(lines, start, end) {
+  let imagePath = "";
+
+  for (let lineIndex = start; lineIndex <= end; lineIndex += 1) {
+    const plugin = parsePluginOpen(lines[lineIndex]);
+    if (!plugin || plugin.name !== CHAPTER_MEDIA_PLUGIN_NAME) {
+      continue;
+    }
+
+    if (imagePath) {
+      throw new Error("Only one ::: chapter-media=\"...\" ::: marker is allowed per chapter.");
+    }
+
+    imagePath = parseChapterMediaMarker(plugin);
+  }
+
+  return imagePath;
 }
 
 function findChapterStarts(lines, markers) {
@@ -337,19 +353,24 @@ function buildChapterMarkdown(lines, start, end) {
 
   for (let i = start; i <= end; i += 1) {
     const line = lines[i];
-    
+
     const plugin = parsePluginOpen(line);
     if (plugin) {
       flushPluginBlock();
+
+      if (plugin.selfClosing) {
+        continue;
+      }
+
       inPluginBlock = plugin.name;
       continue;
     }
-    
+
     if (inPluginBlock && isPluginClose(line)) {
       flushPluginBlock();
       continue;
     }
-    
+
     if (inPluginBlock) {
       pluginLines.push(line);
     } else {
@@ -404,7 +425,7 @@ export function buildSiteModel(rawMarkdown, options = {}) {
 
     sections.push({
       ...navItems[index],
-      imagePath: markers[index].imagePath || IMAGE_BY_SLUG[navItems[index].slug] || "",
+      imagePath: findChapterMediaPath(lines, start, end),
       html
     });
   }

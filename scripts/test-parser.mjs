@@ -32,7 +32,8 @@ test("buildSiteModel respects chapter IDs and marker stripping", async () => {
   ]);
 
   const joinedSections = model.sections.map((section) => section.html).join("\n");
-  assert.equal(joinedSections.includes("<navbar:"), false);
+  assert.equal(joinedSections.includes("navbar-chapter"), false);
+  assert.equal(joinedSections.includes("chapter-media"), false);
   assert.match(model.footerHtml, /Newsletter abonnieren/i);
   assert.match(joinedSections, /href="documents\/Zukunftwohnen_Mitgliedsantrag\.pdf"[^>]*target="_blank"/);
   assert.match(joinedSections, /href="https:\/\/www\.change\.org\/[^"]*"[^>]*target="_blank"/);
@@ -50,8 +51,8 @@ test("buildSiteModel respects chapter IDs and marker stripping", async () => {
   assert.equal(model.sections[5].imagePath, "assets/close-up-hand-moving-wheel.jpg");
 });
 
-test("buildSiteModel parses pipe-based navbar metadata and keeps legacy markers working", () => {
-  const sample = `# Start\n::: navbar: logo | Start | image=assets/start.jpg\n:::\nEinleitung.\n\n# Kapitel\n::: navbar: Kapitel | image=assets/kapitel.jpg\n:::\nText.\n\n# Legacy\n::: navbar: Legacy Kapitel\n:::\nMehr Text.`;
+test("buildSiteModel parses explicit chapter markers and separates media metadata", () => {
+  const sample = `# Start\n::: navbar-chapter-with-logo="Start" | logo="assets/logo.png" :::\n::: chapter-media="assets/start.jpg" :::\nEinleitung.\n\n# Kapitel\n::: navbar-chapter="Kapitel" :::\n::: chapter-media="assets/kapitel.jpg" :::\nText.\n\n# Ohne Bild\n::: navbar-chapter="Ohne Bild" :::\nMehr Text.`;
   const model = buildSiteModel(sample);
 
   assert.equal(model.navItems.length, 3);
@@ -62,8 +63,17 @@ test("buildSiteModel parses pipe-based navbar metadata and keeps legacy markers 
   assert.equal(model.sections[2].imagePath, "");
 });
 
+test("buildSiteModel rejects legacy navbar markers", () => {
+  const sample = `# Start\n::: navbar: Start\n:::\nText.`;
+
+  assert.throws(
+    () => buildSiteModel(sample),
+    /Legacy ::: navbar: \.\.\. ::: markers are no longer supported/i
+  );
+});
+
 test("footer parser tolerates missing closing tag", () => {
-  const sample = `# Titel\n:::navbar: logo, Start\nErster Absatz.\n\n:::footer\n- [Newsletter](/documents/newsletter.pdf)`;
+  const sample = `# Titel\n::: navbar-chapter-with-logo="Start" | logo="assets/logo.png" :::\nErster Absatz.\n\n:::footer\n- [Newsletter](/documents/newsletter.pdf)`;
   const model = buildSiteModel(sample);
 
   assert.match(model.sections[0].html, /Erster Absatz/);

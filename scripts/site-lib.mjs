@@ -437,7 +437,8 @@ export function buildSiteModel(rawMarkdown, options = {}) {
     sections,
     firstSectionId: navItems[0]?.id || "",
     footerHtml,
-    hasLogoAction: markers[0]?.hasLogo || false
+    hasLogoAction: markers[0]?.hasLogo || false,
+    logoPath: markers[0]?.logoPath || ""
   };
 }
 
@@ -473,7 +474,7 @@ ${section.html}
 export function renderPage({ template, model, logoPath, pageTitle }) {
   const replacements = {
     PAGE_TITLE: escapeHtml(pageTitle),
-    LOGO_PATH: logoPath,
+    LOGO_PATH: model.logoPath || logoPath || "",
     LOGO_TARGET: model.firstSectionId,
     NAV_ITEMS: renderNav(model.navItems),
     CHAPTERS: renderSections(model.sections),

@@ -17,7 +17,6 @@ async function main() {
   const html = renderPage({
     template,
     model,
-    logoPath: "assets/ZW_Logo_transparent.png",
     pageTitle: "Zukunft Wohnen"
   });
 

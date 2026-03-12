@@ -22,6 +22,7 @@ test("buildSiteModel respects chapter IDs and marker stripping", async () => {
   const model = buildSiteModel(content);
 
   assert.equal(model.navItems.length, 6);
+  assert.equal(model.logoPath, "assets/ZW_Logo_transparent.png");
   assert.deepEqual(model.navItems.map((item) => item.id), [
     "chapter-verein-zukunftwohnen",
     "chapter-unsere-stimmen",
@@ -58,6 +59,7 @@ test("buildSiteModel parses explicit chapter markers and separates media metadat
   assert.equal(model.navItems.length, 3);
   assert.equal(model.firstSectionId, "chapter-start");
   assert.equal(model.hasLogoAction, true);
+  assert.equal(model.logoPath, "assets/logo.png");
   assert.equal(model.sections[0].imagePath, "assets/start.jpg");
   assert.equal(model.sections[1].imagePath, "assets/kapitel.jpg");
   assert.equal(model.sections[2].imagePath, "");

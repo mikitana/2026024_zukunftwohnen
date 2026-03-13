@@ -24,7 +24,7 @@ Der Satzungszweck wird insbesondere durch Öffentlichkeitsarbeit sowie durch die
 ## Unsere Petition
 
 ::: navbar-chapter="Petition unterstützen" :::
-::: chapter-media="assets/pexels-rdne-7403031.jpeg" :::
+::: chapter-media="assets/kathrin_enno_landscape.png" :::
 
 Wir fordern:
 - Ausreichendes Angebot für Intensiv-Wohnplätze 
@@ -120,7 +120,7 @@ Hilf uns, Geschichten zu erzählen, die bewegen. Mach die Anliegen schwerstbehin
 
 ## Über uns: Eltern, die nicht aufgeben
 ::: navbar-chapter="Über uns" :::
-::: chapter-media="assets/nathan-anderson-FHiJWoBodrs-unsplash.jpeg" :::
+::: chapter-media="assets/margarethe_wald.jpeg" :::
 
 Wir, der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V. sind Eltern, die für ihre schwerstbehinderten Kinder kämpfen und dabei ein System verändern wollen. 
 

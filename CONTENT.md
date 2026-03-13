@@ -24,7 +24,7 @@ Der Satzungszweck wird insbesondere durch Öffentlichkeitsarbeit sowie durch die
 ## Unsere Petition
 
 ::: navbar-chapter="Petition unterstützen" :::
-::: chapter-media="assets/kathrin_enno_landscape.png" :::
+::: chapter-media="assets/screen_all.png" :::
 
 Wir fordern:
 - Ausreichendes Angebot für Intensiv-Wohnplätze 
@@ -70,7 +70,7 @@ Der Deutsche Bundestag hat anerkannt: Die Versorgungslücke für junge Erwachsen
 
 ## Werde aktiv: Wir brauchen Deine Hände, nicht nur Deine Unterschrift
 ::: navbar-chapter="Spenden und Helfen" :::
-::: chapter-media="assets/hiki-app-dotm8dUpAxc-unsplash.jpeg" :::
+::: chapter-media="assets/screen_ka_enno_walk.png" :::
 
 Wir sind Eltern am Limit – und wir brauchen Verstärkung. Politik verändert sich nicht durch Appelle allein, sondern durch Menschen, die anpacken. Werde aktives Mitglied und hilf uns beim Networking, in der Pressearbeit oder beim direkten Kontakt zu Abgeordneten. Mit jede Stunde, die Du gibst, gibst Du schwerstbehinderte Menschen eine Perspektive. 
 
@@ -120,7 +120,7 @@ Hilf uns, Geschichten zu erzählen, die bewegen. Mach die Anliegen schwerstbehin
 
 ## Über uns: Eltern, die nicht aufgeben
 ::: navbar-chapter="Über uns" :::
-::: chapter-media="assets/margarethe_wald.jpeg" :::
+::: chapter-media="assets/gpt_protesting_parents.png" :::
 
 Wir, der Verein Zukunft Wohnen für erwachsene Menschen mit Behinderung e.V. sind Eltern, die für ihre schwerstbehinderten Kinder kämpfen und dabei ein System verändern wollen. 
 
